@@ -1,0 +1,73 @@
+[gd_scene load_steps=11 format=3 uid="uid://c3bmnn4sr1cc7"]
+
+[ext_resource type="Texture2D" uid="uid://57qkre8qex2c" path="res://addons/Tiny Swords (Update 010)/Terrain/Water/Rocks/Rocks_01.png" id="1_2i7qp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hv4op"]
+atlas = ExtResource("1_2i7qp")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fetpw"]
+atlas = ExtResource("1_2i7qp")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2anf8"]
+atlas = ExtResource("1_2i7qp")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pllar"]
+atlas = ExtResource("1_2i7qp")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2inmb"]
+atlas = ExtResource("1_2i7qp")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n68cy"]
+atlas = ExtResource("1_2i7qp")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_de6lf"]
+atlas = ExtResource("1_2i7qp")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mxu3o"]
+atlas = ExtResource("1_2i7qp")
+region = Rect2(896, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kurdn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hv4op")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fetpw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2anf8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pllar")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2inmb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n68cy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_de6lf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mxu3o")
+}],
+"loop": true,
+"name": &"default",
+"speed": 15.0
+}]
+
+[node name="Rock01" type="AnimatedSprite2D"]
+y_sort_enabled = true
+sprite_frames = SubResource("SpriteFrames_kurdn")
+autoplay = "default"
+offset = Vector2(0, 32)
