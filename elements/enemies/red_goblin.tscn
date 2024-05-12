@@ -1,7 +1,9 @@
-[gd_scene load_steps=36 format=3 uid="uid://dylncmicpc1u7"]
+[gd_scene load_steps=38 format=3 uid="uid://dylncmicpc1u7"]
 
 [ext_resource type="Texture2D" uid="uid://gjoym8xolb6f" path="res://addons/Tiny Swords (Update 010)/Factions/Goblins/Troops/Torch/Red/Torch_Red.png" id="1_boq6i"]
+[ext_resource type="Script" path="res://elements/enemies/enemy.gd" id="1_ye8de"]
 [ext_resource type="Script" path="res://elements/enemies/behaviors/follow_player.gd" id="1_yusl6"]
+[ext_resource type="Script" path="res://elements/enemies/TorchAttackNode.gd" id="3_ffgak"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2tqd4"]
 atlas = ExtResource("1_boq6i")
@@ -148,7 +150,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_1j18u")
 }],
-"loop": false,
+"loop": true,
 "name": &"attack_down",
 "speed": 10.0
 }, {
@@ -171,7 +173,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_gxi5v")
 }],
-"loop": false,
+"loop": true,
 "name": &"attack_side",
 "speed": 10.0
 }, {
@@ -194,7 +196,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_2begk")
 }],
-"loop": false,
+"loop": true,
 "name": &"attack_up",
 "speed": 10.0
 }, {
@@ -254,13 +256,20 @@ height = 36.0
 
 [node name="Red_Goblin" type="CharacterBody2D"]
 y_sort_enabled = true
-script = ExtResource("1_yusl6")
+script = ExtResource("1_ye8de")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_byosy")
-animation = &"run"
+animation = &"idle"
 autoplay = "run"
+frame_progress = 0.772419
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1, 18)
 shape = SubResource("CapsuleShape2D_qyigg")
+
+[node name="AttackNode" type="Node" parent="."]
+script = ExtResource("3_ffgak")
+
+[node name="FollowPlayer" type="Node" parent="."]
+script = ExtResource("1_yusl6")

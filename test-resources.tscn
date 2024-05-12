@@ -1,136 +1,12 @@
-[gd_scene load_steps=23 format=3 uid="uid://c57tpps4illul"]
+[gd_scene load_steps=8 format=3 uid="uid://c57tpps4illul"]
 
 [ext_resource type="PackedScene" uid="uid://ci66s8280laeq" path="res://elements/effects/explosion.tscn" id="1_ncyii"]
 [ext_resource type="PackedScene" uid="uid://db46qaqllqnlj" path="res://elements/effects/fire.tscn" id="2_ae2wm"]
 [ext_resource type="PackedScene" uid="uid://c3bmnn4sr1cc7" path="res://elements/terrain/rock_01.tscn" id="3_5aqfn"]
-[ext_resource type="Texture2D" uid="uid://b30tkxkekk1cr" path="res://addons/Tiny Swords (Update 010)/Factions/Knights/Troops/Dead/Dead.png" id="4_rofmr"]
+[ext_resource type="PackedScene" uid="uid://b8msl7rqtv4k4" path="res://elements/effects/death_skull.tscn" id="4_0aq5c"]
 [ext_resource type="PackedScene" uid="uid://bk6omcyiwcgr5" path="res://elements/player/player.tscn" id="5_2wyig"]
 [ext_resource type="PackedScene" uid="uid://dylncmicpc1u7" path="res://elements/enemies/red_goblin.tscn" id="6_aes5w"]
 [ext_resource type="PackedScene" uid="uid://dcfa5f4wuxto" path="res://elements/enemies/barrel_goblin.tscn" id="7_myepl"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ek6b0"]
-atlas = ExtResource("4_rofmr")
-region = Rect2(0, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6ad87"]
-atlas = ExtResource("4_rofmr")
-region = Rect2(128, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_meaa1"]
-atlas = ExtResource("4_rofmr")
-region = Rect2(256, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_oroqk"]
-atlas = ExtResource("4_rofmr")
-region = Rect2(384, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_dmx6o"]
-atlas = ExtResource("4_rofmr")
-region = Rect2(512, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_b5v36"]
-atlas = ExtResource("4_rofmr")
-region = Rect2(640, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7xnbg"]
-atlas = ExtResource("4_rofmr")
-region = Rect2(768, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_m4wek"]
-atlas = ExtResource("4_rofmr")
-region = Rect2(0, 128, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_w0gc0"]
-atlas = ExtResource("4_rofmr")
-region = Rect2(128, 128, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qh558"]
-atlas = ExtResource("4_rofmr")
-region = Rect2(256, 128, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3k826"]
-atlas = ExtResource("4_rofmr")
-region = Rect2(384, 128, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7v4bg"]
-atlas = ExtResource("4_rofmr")
-region = Rect2(512, 128, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_id5mu"]
-atlas = ExtResource("4_rofmr")
-region = Rect2(640, 128, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_g3u2d"]
-atlas = ExtResource("4_rofmr")
-region = Rect2(768, 128, 128, 128)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_i5h31"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ek6b0")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6ad87")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_meaa1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_oroqk")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_dmx6o")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_b5v36")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_7xnbg")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_7xnbg")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_7xnbg")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_7xnbg")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_7xnbg")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_7xnbg")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_7xnbg")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_m4wek")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_w0gc0")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_qh558")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_3k826")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_7v4bg")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_id5mu")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_g3u2d")
-}],
-"loop": true,
-"name": &"default",
-"speed": 15.0
-}]
 
 [node name="Node2D" type="Node2D"]
 y_sort_enabled = true
@@ -144,25 +20,21 @@ position = Vector2(181, 78)
 [node name="Rock01" parent="." instance=ExtResource("3_5aqfn")]
 position = Vector2(275, 58)
 
-[node name="DeathSkull" type="AnimatedSprite2D" parent="."]
-y_sort_enabled = true
-position = Vector2(345, 80)
-sprite_frames = SubResource("SpriteFrames_i5h31")
-autoplay = "default"
+[node name="DeathSkull" parent="." instance=ExtResource("4_0aq5c")]
 
 [node name="Player" parent="." instance=ExtResource("5_2wyig")]
 position = Vector2(433, 335)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 
-[node name="Red_Goblin" parent="." instance=ExtResource("6_aes5w")]
-position = Vector2(657, 160)
-
-[node name="Red_Goblin2" parent="." instance=ExtResource("6_aes5w")]
-position = Vector2(238, 527)
-
-[node name="Red_Goblin3" parent="." instance=ExtResource("6_aes5w")]
-position = Vector2(885, 495)
-
 [node name="Barrel_Goblin" parent="." instance=ExtResource("7_myepl")]
 position = Vector2(1179, 196)
+
+[node name="Red_Goblin" parent="." instance=ExtResource("6_aes5w")]
+position = Vector2(175, 313)
+
+[node name="Red_Goblin2" parent="." instance=ExtResource("6_aes5w")]
+position = Vector2(816, 405)
+
+[node name="Red_Goblin3" parent="." instance=ExtResource("6_aes5w")]
+position = Vector2(285, 570)

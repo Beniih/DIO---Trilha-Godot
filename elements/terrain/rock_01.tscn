@@ -63,7 +63,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
-"speed": 15.0
+"speed": 10.0
 }]
 
 [node name="Rock01" type="AnimatedSprite2D"]
