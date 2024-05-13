@@ -47,9 +47,14 @@ func _input(event: InputEvent) -> void:
 			"side":
 				knigh_blue.set_animation("attack_side_01")
 		knigh_blue.play()
-
+		deal_damage()
 
 func _on_knigh_blue_animation_finished() -> void:
 	knigh_blue.set_animation("idle")
 	knigh_blue.play()
 	animation_tree.active = true
+
+func deal_damage() -> void:
+	while $KnighBlue.frame < 3:
+		await  get_tree().process_frame
+	print("ATACKED!")

@@ -5,7 +5,7 @@ var attacking: bool = false
 @onready var enemy: Enemy = get_parent()
 @onready var sprite: AnimatedSprite2D = enemy.get_node("Sprite")
 
-
+# get direction and make the movement
 func follow_player(delta: float, player_position: Vector2) -> void:
 	var direction = player_position - enemy.position
 
