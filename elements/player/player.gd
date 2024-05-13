@@ -3,6 +3,7 @@ extends CharacterBody2D
 @export var speed : float = 200.0
 @onready var animation_tree: AnimationTree = $AnimationTree
 @onready var knigh_blue: AnimatedSprite2D = $KnighBlue
+@onready var attack_colision: Area2D = $AttackColision
 var character_facing = "side"
 var input_vector: Vector2 = Vector2(0.0,0.0)
 
@@ -49,12 +50,37 @@ func _input(event: InputEvent) -> void:
 		knigh_blue.play()
 		deal_damage()
 
+
 func _on_knigh_blue_animation_finished() -> void:
 	knigh_blue.set_animation("idle")
 	knigh_blue.play()
 	animation_tree.active = true
 
+
 func deal_damage() -> void:
+# wait valid attack frame from animation
 	while $KnighBlue.frame < 3:
 		await  get_tree().process_frame
-	print("ATACKED!")
+# get the enemy near
+	var bodies = attack_colision.get_overlapping_bodies()
+	for body in bodies:
+		if !is_instance_valid(body):
+			return
+		if body.is_in_group("enemy"):
+			var enemy: Enemy = body
+# calculate directions
+			var direction_to_enemy = (enemy.position-position).normalized()
+			var atack_direction: Vector2
+			if character_facing == "up":
+				atack_direction = Vector2.UP
+			elif character_facing == "down":
+				atack_direction = Vector2.DOWN
+			else:
+				if $KnighBlue.flip_h:
+					atack_direction = Vector2.LEFT
+				else:
+					atack_direction = Vector2.RIGHT
+# calculate if enemy get hited and hit
+			var dot_product = direction_to_enemy.dot(atack_direction)
+			if dot_product >= .35:
+				print("DAMAGED ", body)

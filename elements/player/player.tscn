@@ -1,4 +1,4 @@
-[gd_scene load_steps=72 format=3 uid="uid://bk6omcyiwcgr5"]
+[gd_scene load_steps=73 format=3 uid="uid://bk6omcyiwcgr5"]
 
 [ext_resource type="Script" path="res://elements/player/player.gd" id="1_86aie"]
 [ext_resource type="Texture2D" uid="uid://dt1hb8qr7n6vw" path="res://addons/Tiny Swords (Update 010)/Factions/Knights/Troops/Warrior/Blue/Warrior_Blue.png" id="1_c4e3p"]
@@ -218,7 +218,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"attack_down_01",
-"speed": 2.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -381,6 +381,9 @@ animations = [{
 "name": &"run",
 "speed": 10.0
 }]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sbbvi"]
+radius = 80.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wn6u0"]
 radius = 15.0
@@ -557,10 +560,17 @@ script = ExtResource("1_86aie")
 
 [node name="KnighBlue" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_aie1p")
-animation = &"attack_down_01"
+animation = &"attack_up_01"
 autoplay = "idle"
 frame = 5
 frame_progress = 1.0
+
+[node name="AttackColision" type="Area2D" parent="."]
+position = Vector2(1, 15)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackColision"]
+shape = SubResource("CircleShape2D_sbbvi")
+debug_color = Color(0.668346, 0.497428, 0.320934, 0.42)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1, 15)

@@ -254,7 +254,7 @@ animations = [{
 radius = 18.0
 height = 36.0
 
-[node name="Red_Goblin" type="CharacterBody2D"]
+[node name="Red_Goblin" type="CharacterBody2D" groups=["enemy"]]
 y_sort_enabled = true
 script = ExtResource("1_ye8de")
 

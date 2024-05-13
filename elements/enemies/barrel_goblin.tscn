@@ -186,7 +186,7 @@ animations = [{
 radius = 22.0
 height = 44.0
 
-[node name="Barrel_Goblin" type="CharacterBody2D"]
+[node name="Barrel_Goblin" type="CharacterBody2D" groups=["enemy"]]
 script = ExtResource("1_2itak")
 health = 2
 

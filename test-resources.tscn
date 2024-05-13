@@ -38,3 +38,15 @@ position = Vector2(816, 405)
 
 [node name="Red_Goblin3" parent="." instance=ExtResource("6_aes5w")]
 position = Vector2(285, 570)
+
+[node name="Barrel_Goblin2" parent="." instance=ExtResource("7_myepl")]
+position = Vector2(34, 477)
+
+[node name="Barrel_Goblin3" parent="." instance=ExtResource("7_myepl")]
+position = Vector2(757, 71)
+
+[node name="Barrel_Goblin4" parent="." instance=ExtResource("7_myepl")]
+position = Vector2(1053, 566)
+
+[node name="Barrel_Goblin5" parent="." instance=ExtResource("7_myepl")]
+position = Vector2(1261, 358)
