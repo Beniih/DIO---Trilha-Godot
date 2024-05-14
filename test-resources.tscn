@@ -13,14 +13,18 @@ y_sort_enabled = true
 
 [node name="Explosion" parent="." instance=ExtResource("1_ncyii")]
 position = Vector2(72, 71)
+frame_progress = 0.62847
 
 [node name="Fire" parent="." instance=ExtResource("2_ae2wm")]
 position = Vector2(181, 78)
+frame_progress = 0.569825
 
 [node name="Rock01" parent="." instance=ExtResource("3_5aqfn")]
 position = Vector2(275, 58)
+frame_progress = 0.268607
 
 [node name="DeathSkull" parent="." instance=ExtResource("4_0aq5c")]
+frame_progress = 0.575647
 
 [node name="Player" parent="." instance=ExtResource("5_2wyig")]
 position = Vector2(433, 335)

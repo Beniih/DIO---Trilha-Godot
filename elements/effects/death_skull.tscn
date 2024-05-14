@@ -79,25 +79,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_b5v36")
 }, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_7xnbg")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_7xnbg")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_7xnbg")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_7xnbg")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_7xnbg")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_7xnbg")
-}, {
-"duration": 1.0,
+"duration": 27.0,
 "texture": SubResource("AtlasTexture_7xnbg")
 }, {
 "duration": 1.0,
@@ -121,7 +103,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_g3u2d")
 }],
-"loop": true,
+"loop": false,
 "name": &"default",
 "speed": 10.0
 }]
@@ -131,3 +113,4 @@ y_sort_enabled = true
 position = Vector2(345, 80)
 sprite_frames = SubResource("SpriteFrames_i5h31")
 autoplay = "default"
+frame_progress = 0.815507

@@ -1,10 +1,12 @@
-[gd_scene load_steps=29 format=3 uid="uid://dcfa5f4wuxto"]
+[gd_scene load_steps=31 format=3 uid="uid://dcfa5f4wuxto"]
 
 [ext_resource type="Script" path="res://elements/enemies/enemy.gd" id="1_2itak"]
 [ext_resource type="Script" path="res://elements/enemies/behaviors/follow_player.gd" id="1_u3kqv"]
 [ext_resource type="Texture2D" uid="uid://p6c667etfbkk" path="res://addons/Tiny Swords (Update 010)/Factions/Goblins/Troops/Barrel/Red/Barrel_Red.png" id="2_ffr7t"]
 [ext_resource type="Texture2D" uid="uid://ccbp0syqp7ehq" path="res://addons/Tiny Swords (Update 010)/Effects/Explosion/Explosions.png" id="2_q23eu"]
+[ext_resource type="PackedScene" uid="uid://b8msl7rqtv4k4" path="res://elements/effects/death_skull.tscn" id="2_x4d1o"]
 [ext_resource type="Script" path="res://elements/enemies/BarrelAttackNode.gd" id="4_t25ip"]
+[ext_resource type="Script" path="res://elements/enemies/behaviors/DeathObjectTorch.gd" id="7_6nadf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7o3ay"]
 atlas = ExtResource("2_q23eu")
@@ -189,6 +191,7 @@ height = 44.0
 [node name="Barrel_Goblin" type="CharacterBody2D" groups=["enemy"]]
 script = ExtResource("1_2itak")
 health = 2
+death_prefab = ExtResource("2_x4d1o")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_18l4h")
@@ -204,3 +207,7 @@ script = ExtResource("4_t25ip")
 
 [node name="FollowPlayer" type="Node" parent="."]
 script = ExtResource("1_u3kqv")
+
+[node name="DeathState" type="Node" parent="."]
+script = ExtResource("7_6nadf")
+death_prefab = ExtResource("2_x4d1o")

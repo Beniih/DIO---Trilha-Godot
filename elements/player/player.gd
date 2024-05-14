@@ -6,6 +6,7 @@ extends CharacterBody2D
 @onready var attack_colision: Area2D = $AttackColision
 var character_facing = "side"
 var input_vector: Vector2 = Vector2(0.0,0.0)
+var can_attack: bool = true
 
 
 func _process(delta: float) -> void:
@@ -31,8 +32,9 @@ func _physics_process(delta: float) -> void:
 
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("attack"):
+	if event.is_action_pressed("attack") and can_attack:
 		animation_tree.active = false
+		can_attack = false
 		if input_vector.y > .75:
 			character_facing = "down"
 		elif input_vector.y < -.75:
@@ -55,6 +57,7 @@ func _on_knigh_blue_animation_finished() -> void:
 	knigh_blue.set_animation("idle")
 	knigh_blue.play()
 	animation_tree.active = true
+	can_attack = true
 
 
 func deal_damage() -> void:
@@ -83,4 +86,5 @@ func deal_damage() -> void:
 # calculate if enemy get hited and hit
 			var dot_product = direction_to_enemy.dot(atack_direction)
 			if dot_product >= .35:
+				body.take_damage(5)
 				print("DAMAGED ", body)
