@@ -383,7 +383,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sbbvi"]
-radius = 80.0
+radius = 120.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wn6u0"]
 radius = 15.0
@@ -553,24 +553,22 @@ blend_point_11/pos = Vector2(0.1, -0.2)
 triangles = PackedInt32Array(0, 5, 6, 0, 3, 6, 4, 5, 7, 5, 6, 7, 2, 3, 9, 3, 6, 9, 7, 8, 10, 1, 8, 10, 4, 7, 10, 8, 9, 11, 2, 9, 11, 1, 8, 11)
 blend_mode = 1
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["player"]]
 y_sort_enabled = true
 motion_mode = 1
 script = ExtResource("1_86aie")
 
 [node name="KnighBlue" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_aie1p")
-animation = &"attack_up_01"
+animation = &"idle"
 autoplay = "idle"
-frame = 5
-frame_progress = 1.0
 
 [node name="AttackColision" type="Area2D" parent="."]
 position = Vector2(1, 15)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackColision"]
 shape = SubResource("CircleShape2D_sbbvi")
-debug_color = Color(0.668346, 0.497428, 0.320934, 0.42)
+debug_color = Color(0.666667, 0.498039, 0.321569, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1, 15)
@@ -586,6 +584,6 @@ libraries = {
 reset_on_save = false
 tree_root = SubResource("AnimationNodeBlendSpace2D_ilydg")
 anim_player = NodePath("../MovementAnimation")
-parameters/blend_position = Vector2(-0.00430107, 0)
+parameters/blend_position = Vector2(0, 0)
 
 [connection signal="animation_finished" from="KnighBlue" to="." method="_on_knigh_blue_animation_finished"]

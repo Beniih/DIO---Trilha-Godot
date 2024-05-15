@@ -1,6 +1,7 @@
-[gd_scene load_steps=17 format=3 uid="uid://b8msl7rqtv4k4"]
+[gd_scene load_steps=18 format=3 uid="uid://b8msl7rqtv4k4"]
 
 [ext_resource type="Texture2D" uid="uid://b30tkxkekk1cr" path="res://addons/Tiny Swords (Update 010)/Factions/Knights/Troops/Dead/Dead.png" id="1_1h4iq"]
+[ext_resource type="Script" path="res://elements/effects/death_skull.gd" id="2_opyox"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ek6b0"]
 atlas = ExtResource("1_1h4iq")
@@ -114,3 +115,4 @@ position = Vector2(345, 80)
 sprite_frames = SubResource("SpriteFrames_i5h31")
 autoplay = "default"
 frame_progress = 0.815507
+script = ExtResource("2_opyox")

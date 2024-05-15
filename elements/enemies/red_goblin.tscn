@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://dylncmicpc1u7"]
+[gd_scene load_steps=40 format=3 uid="uid://dylncmicpc1u7"]
 
 [ext_resource type="Texture2D" uid="uid://gjoym8xolb6f" path="res://addons/Tiny Swords (Update 010)/Factions/Goblins/Troops/Torch/Red/Torch_Red.png" id="1_boq6i"]
 [ext_resource type="Script" path="res://elements/enemies/enemy.gd" id="1_ye8de"]
@@ -255,6 +255,9 @@ animations = [{
 radius = 18.0
 height = 36.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_rkdr3"]
+radius = 90.0
+
 [node name="Red_Goblin" type="CharacterBody2D" groups=["enemy"]]
 y_sort_enabled = true
 script = ExtResource("1_ye8de")
@@ -262,15 +265,24 @@ death_prefab = ExtResource("2_31oh8")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_byosy")
-animation = &"idle"
+animation = &"attack_side"
 autoplay = "run"
+frame = 3
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="BodyShape" type="CollisionShape2D" parent="."]
 position = Vector2(1, 18)
 shape = SubResource("CapsuleShape2D_qyigg")
 
-[node name="AttackNode" type="Node" parent="."]
+[node name="AttackRange" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRange"]
+shape = SubResource("CircleShape2D_rkdr3")
+debug_color = Color(0.980392, 0, 0.388235, 0)
+
+[node name="AttackNode" type="Node" parent="." node_paths=PackedStringArray("attack_range", "sprite")]
 script = ExtResource("3_ffgak")
+attack_range = NodePath("../AttackRange")
+sprite = NodePath("../Sprite")
 
 [node name="FollowPlayer" type="Node" parent="."]
 script = ExtResource("1_yusl6")

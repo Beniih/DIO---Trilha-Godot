@@ -1,17 +1,14 @@
 extends Node
-
-#const EXPLOSION = preload("res://elements/effects/explosion.tscn")
+@export var attack_range: Area2D
+@export var sprite: AnimatedSprite2D
 # execute the attack
 func attack_action() -> void:
 	if get_parent().has_node("Sprite"):
-		$"../Sprite".set_animation("redy_explosion")
+		sprite.set_animation("redy_explosion")
 		await get_tree().create_timer(0.4).timeout
-		$"../Sprite".set_animation("explosion")
-		#var explode = EXPLOSION.instantiate()
-		#explode.position = get_parent().position
-		#add_child(explode)
-		await get_tree().create_timer(0.5).timeout
-		get_parent().queue_free()
+		sprite.set_animation("explosion")
+		deal_damage()
+
 # decide when close enough and attack if can
 func attack_decide(pos: Vector2, player_pos: Vector2, attacking: bool, can_attack: bool) -> String:
 	if player_pos.distance_to(pos) < 50.0 or attacking:
@@ -19,3 +16,14 @@ func attack_decide(pos: Vector2, player_pos: Vector2, attacking: bool, can_attac
 			return "attack"
 		return "wait"
 	return ""
+
+
+func deal_damage() -> void:
+	while sprite.frame < 1:
+		await  get_tree().process_frame
+	var bodies = attack_range.get_overlapping_bodies()
+	for body in bodies:
+		if !is_instance_valid(body):
+			return
+		body.take_damage(3)
+	get_parent().queue_free()

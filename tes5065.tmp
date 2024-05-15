@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://c57tpps4illul"]
+[gd_scene load_steps=8 format=3 uid="uid://c57tpps4illul"]
 
 [ext_resource type="PackedScene" uid="uid://ci66s8280laeq" path="res://elements/effects/explosion.tscn" id="1_ncyii"]
 [ext_resource type="PackedScene" uid="uid://db46qaqllqnlj" path="res://elements/effects/fire.tscn" id="2_ae2wm"]
@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://bk6omcyiwcgr5" path="res://elements/player/player.tscn" id="5_2wyig"]
 [ext_resource type="PackedScene" uid="uid://dylncmicpc1u7" path="res://elements/enemies/red_goblin.tscn" id="6_aes5w"]
 [ext_resource type="PackedScene" uid="uid://dcfa5f4wuxto" path="res://elements/enemies/barrel_goblin.tscn" id="7_myepl"]
-[ext_resource type="Script" path="res://camera_follow.gd" id="8_jmqqj"]
 
 [node name="Node2D" type="Node2D"]
 y_sort_enabled = true
@@ -45,7 +44,7 @@ position = Vector2(816, 405)
 position = Vector2(285, 570)
 
 [node name="Barrel_Goblin2" parent="." instance=ExtResource("7_myepl")]
-position = Vector2(30, 523)
+position = Vector2(34, 477)
 
 [node name="Barrel_Goblin3" parent="." instance=ExtResource("7_myepl")]
 position = Vector2(757, 71)
@@ -55,9 +54,3 @@ position = Vector2(1053, 566)
 
 [node name="Barrel_Goblin5" parent="." instance=ExtResource("7_myepl")]
 position = Vector2(1261, 358)
-
-[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("target")]
-position = Vector2(442, 342)
-script = ExtResource("8_jmqqj")
-target = NodePath("../Player")
-follow_speed = 2.5

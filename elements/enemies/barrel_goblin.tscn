@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://dcfa5f4wuxto"]
+[gd_scene load_steps=32 format=3 uid="uid://dcfa5f4wuxto"]
 
 [ext_resource type="Script" path="res://elements/enemies/enemy.gd" id="1_2itak"]
 [ext_resource type="Script" path="res://elements/enemies/behaviors/follow_player.gd" id="1_u3kqv"]
@@ -188,6 +188,9 @@ animations = [{
 radius = 22.0
 height = 44.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_8npwe"]
+radius = 70.0
+
 [node name="Barrel_Goblin" type="CharacterBody2D" groups=["enemy"]]
 script = ExtResource("1_2itak")
 health = 2
@@ -195,15 +198,23 @@ death_prefab = ExtResource("2_x4d1o")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_18l4h")
-animation = &"redy_explosion"
+animation = &"explosion"
 autoplay = "run"
+frame = 2
 
 [node name="Body" type="CollisionShape2D" parent="."]
 position = Vector2(0, 13)
 shape = SubResource("CapsuleShape2D_eacvq")
 
-[node name="AttackNode" type="Node" parent="."]
+[node name="AttackNode" type="Node" parent="." node_paths=PackedStringArray("attack_range", "sprite")]
 script = ExtResource("4_t25ip")
+attack_range = NodePath("../AttackRange")
+sprite = NodePath("../Sprite")
+
+[node name="AttackRange" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRange"]
+shape = SubResource("CircleShape2D_8npwe")
 
 [node name="FollowPlayer" type="Node" parent="."]
 script = ExtResource("1_u3kqv")
