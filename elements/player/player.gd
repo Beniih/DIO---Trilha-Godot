@@ -1,7 +1,7 @@
 class_name Player
 extends CharacterBody2D
 #---------------------status------------------------#
-var nivel: int = 1
+var nivel: int = 10
 var xp: int = 0
 var strenght: int = 1
 var thougness: int = 1
@@ -103,16 +103,16 @@ func deal_damage() -> void:
 # calculate if enemy get hited and hit
 			var dot_product = direction_to_enemy.dot(atack_direction)
 			if dot_product >= .35:
-				body.take_damage(strenght)
+				var dmg: int = strenght + (nivel / 2)
+				body.take_damage(dmg)
 
 
 func take_damage(amount):
 	var tween = create_tween()
-	if health <= 0:
-		get_tree().call_deferred("reload_current_scene")
-		return
 	tween.set_trans(Tween.TRANS_BOUNCE)
 	health -= amount
+	if health <= 0:
+		get_tree().call_deferred("reload_current_scene")
 	#tween.tween_property($Sprite, "skew",.6,.1)
 	modulate = Color.RED
 	tween.tween_property(self, "modulate", Color.WHITE, 0.3)

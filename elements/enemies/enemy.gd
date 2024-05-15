@@ -29,11 +29,11 @@ func attack() -> void: # call attack
 
 
 func take_damage(amount):
-	if health <= 0:
-		call_deferred("die")
 	var tween = create_tween()
 	tween.set_trans(Tween.TRANS_BOUNCE)
 	health -= amount
+	if health <= 0:
+		call_deferred("die")
 	modulate = Color.RED
 	tween.tween_property(self, "modulate", Color.WHITE, 0.3)
 

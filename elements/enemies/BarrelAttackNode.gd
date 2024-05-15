@@ -23,7 +23,7 @@ func deal_damage() -> void:
 		await  get_tree().process_frame
 	var bodies = attack_range.get_overlapping_bodies()
 	for body in bodies:
-		if !is_instance_valid(body):
-			return
-		body.take_damage(3)
+		if is_instance_valid(body) and body != get_parent():
+			body.take_damage(3)
+	await sprite.animation_finished
 	get_parent().queue_free()
