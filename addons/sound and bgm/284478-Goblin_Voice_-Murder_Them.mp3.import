@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://f3voxjh0ojgl"
+path="res://.godot/imported/284478-Goblin_Voice_-Murder_Them.mp3-58b4ca9b038e9b7c13b7429c6b39ffff.mp3str"
+
+[deps]
+
+source_file="res://addons/sound and bgm/284478-Goblin_Voice_-Murder_Them.mp3"
+dest_files=["res://.godot/imported/284478-Goblin_Voice_-Murder_Them.mp3-58b4ca9b038e9b7c13b7429c6b39ffff.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

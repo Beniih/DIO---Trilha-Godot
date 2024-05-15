@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dwuqs58e6vsaw"
+path="res://.godot/imported/374021-Toonish_Goblin-Laugh-Shout-High_Pitched-Fun-DPA_4007-2.mp3-08bc46f7f251927adfd03a46c9546bf9.mp3str"
+
+[deps]
+
+source_file="res://addons/sound and bgm/374021-Toonish_Goblin-Laugh-Shout-High_Pitched-Fun-DPA_4007-2.mp3"
+dest_files=["res://.godot/imported/374021-Toonish_Goblin-Laugh-Shout-High_Pitched-Fun-DPA_4007-2.mp3-08bc46f7f251927adfd03a46c9546bf9.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

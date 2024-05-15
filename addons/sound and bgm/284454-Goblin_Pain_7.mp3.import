@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://boffm5kkqox2i"
+path="res://.godot/imported/284454-Goblin_Pain_7.mp3-c660617e966a0b4f2c05cba852d901ee.mp3str"
+
+[deps]
+
+source_file="res://addons/sound and bgm/284454-Goblin_Pain_7.mp3"
+dest_files=["res://.godot/imported/284454-Goblin_Pain_7.mp3-c660617e966a0b4f2c05cba852d901ee.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

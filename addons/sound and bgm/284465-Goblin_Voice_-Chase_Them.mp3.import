@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bo6tkcxvmsvkq"
+path="res://.godot/imported/284465-Goblin_Voice_-Chase_Them.mp3-f407141546894611e7a7e8bf090aff88.mp3str"
+
+[deps]
+
+source_file="res://addons/sound and bgm/284465-Goblin_Voice_-Chase_Them.mp3"
+dest_files=["res://.godot/imported/284465-Goblin_Voice_-Chase_Them.mp3-f407141546894611e7a7e8bf090aff88.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

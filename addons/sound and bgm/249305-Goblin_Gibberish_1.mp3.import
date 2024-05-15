@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dk8yv8r6a2yj2"
+path="res://.godot/imported/249305-Goblin_Gibberish_1.mp3-d0a3e755ffddd8e6eb34ac789e8d09fd.mp3str"
+
+[deps]
+
+source_file="res://addons/sound and bgm/249305-Goblin_Gibberish_1.mp3"
+dest_files=["res://.godot/imported/249305-Goblin_Gibberish_1.mp3-d0a3e755ffddd8e6eb34ac789e8d09fd.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

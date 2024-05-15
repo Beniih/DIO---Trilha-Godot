@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ceuk0slvyil0q"
+path="res://.godot/imported/284449-Goblin_Laughter_8.mp3-4c41a3dcfcebbc52e81ecb9a8fd4de56.mp3str"
+
+[deps]
+
+source_file="res://addons/sound and bgm/284449-Goblin_Laughter_8.mp3"
+dest_files=["res://.godot/imported/284449-Goblin_Laughter_8.mp3-4c41a3dcfcebbc52e81ecb9a8fd4de56.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
