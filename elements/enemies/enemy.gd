@@ -3,12 +3,16 @@ extends CharacterBody2D
 
 @export var health: int = 10
 @export var death_prefab: PackedScene
+@export var itens: Array[PackedScene]
 @onready var damage_digit_anchor: Marker2D = $DamageDigitAnchor
-const DAMAGE_DIGIT: PackedScene = preload("res://elements/effects/damage_digit.tscn")
+const DAMAGE_DIGIT: PackedScene = preload("res://elements/misc/damage_digit.tscn")
 var attacking: bool = false
 var can_attack: bool = true
 var player_position: Vector2 = Vector2(0.0,0.0)
+var xp_amout: int = 0
 
+func _ready() -> void:
+	xp_amout = health
 
 func _physics_process(delta: float) -> void:
 	player_position = GameManager.player_position # get player position from singleton
@@ -30,7 +34,7 @@ func attack() -> void: # call attack
 		$AttackNode.attack_action()
 
 
-func take_damage(amount):
+func take_damage(amount, player: bool = false):
 	var damage_digit = DAMAGE_DIGIT.instantiate()
 	var tween = create_tween()
 	tween.set_trans(Tween.TRANS_BOUNCE)
@@ -41,13 +45,20 @@ func take_damage(amount):
 	get_parent().add_child(damage_digit)
 	# check if it's alive
 	if health <= 0:
-		call_deferred("die")
+		call_deferred("die", player)
 	modulate = Color.RED
 	tween.tween_property(self, "modulate", Color.WHITE, 0.3)
 
 
-func die():
-	if death_prefab:
+func die(player: bool = false):
+	var drop = randf()
+	if player:
+		GameManager.xp_received.emit(xp_amout)
+	if itens and drop <= .2:
+		var item = itens.pick_random().instantiate()
+		item.global_position = global_position
+		get_parent().add_child(item)
+	elif death_prefab:
 		var death_object = death_prefab.instantiate()
 		death_object.position = position
 		get_parent().add_child(death_object)

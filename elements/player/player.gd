@@ -3,6 +3,7 @@ extends CharacterBody2D
 #---------------------status------------------------#
 var nivel: int = 1
 var xp: int = 0
+var to_next_level: int = 100
 var strenght: int = 1
 var thougness: int = 1
 var agility: int = 1
@@ -22,6 +23,7 @@ var can_attack: bool = true
 
 func _ready() -> void:
 	max_health = (nivel * 5) + (thougness * 5)
+	GameManager.xp_received.connect(get_xp, 1)
 
 
 func _process(delta: float) -> void:
@@ -31,7 +33,6 @@ func _process(delta: float) -> void:
 	if abs(input_vector.y) < .2:
 		input_vector.y = 0.0
 	input_vector.normalized()
-	print(max_health," - ", health)
 	hp_bar.max_value = max_health
 	hp_bar.value = health
 
@@ -108,7 +109,7 @@ func deal_damage() -> void:
 			var dot_product = direction_to_enemy.dot(atack_direction)
 			if dot_product >= .35:
 				var dmg: int = strenght + (nivel / 2)
-				body.take_damage(dmg)
+				body.take_damage(dmg, true)
 
 
 func take_damage(amount):
@@ -122,7 +123,13 @@ func take_damage(amount):
 
 
 func get_xp(amount):
-	var to_next_level: int = 75 + ((nivel - 1) * 35) + (nivel * nivel * 25)
 	xp += amount
 	if xp >= to_next_level:
 		nivel += 1
+		to_next_level = 75 + ((nivel - 1) * 35) + (nivel * nivel * 25)
+		max_health = (nivel * 5) + (thougness * 5)
+		GameManager.change_dificult(nivel)
+
+func regen_health(amout):
+	health += amout
+	health = clamp(health,0,max_health)

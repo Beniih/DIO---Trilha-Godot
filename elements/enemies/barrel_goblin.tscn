@@ -1,10 +1,11 @@
-[gd_scene load_steps=52 format=3 uid="uid://dcfa5f4wuxto"]
+[gd_scene load_steps=53 format=3 uid="uid://dcfa5f4wuxto"]
 
 [ext_resource type="Script" path="res://elements/enemies/enemy.gd" id="1_2itak"]
 [ext_resource type="Script" path="res://elements/enemies/behaviors/follow_player.gd" id="1_u3kqv"]
+[ext_resource type="PackedScene" uid="uid://b8msl7rqtv4k4" path="res://elements/misc/death_skull.tscn" id="2_6aeej"]
 [ext_resource type="Texture2D" uid="uid://p6c667etfbkk" path="res://addons/Tiny Swords (Update 010)/Factions/Goblins/Troops/Barrel/Red/Barrel_Red.png" id="2_ffr7t"]
 [ext_resource type="Texture2D" uid="uid://ccbp0syqp7ehq" path="res://addons/Tiny Swords (Update 010)/Effects/Explosion/Explosions.png" id="2_q23eu"]
-[ext_resource type="PackedScene" uid="uid://b8msl7rqtv4k4" path="res://elements/effects/death_skull.tscn" id="2_x4d1o"]
+[ext_resource type="PackedScene" uid="uid://cc6ae8esforia" path="res://elements/misc/meat.tscn" id="3_jfxey"]
 [ext_resource type="Script" path="res://elements/enemies/BarrelAttackNode.gd" id="4_t25ip"]
 [ext_resource type="Script" path="res://elements/enemies/behaviors/DeathObjectTorch.gd" id="7_6nadf"]
 
@@ -344,7 +345,8 @@ y_sort_enabled = true
 collision_mask = 3
 script = ExtResource("1_2itak")
 health = 2
-death_prefab = ExtResource("2_x4d1o")
+death_prefab = ExtResource("2_6aeej")
+itens = Array[PackedScene]([ExtResource("3_jfxey")])
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, 28)
@@ -373,7 +375,7 @@ script = ExtResource("1_u3kqv")
 
 [node name="DeathState" type="Node" parent="."]
 script = ExtResource("7_6nadf")
-death_prefab = ExtResource("2_x4d1o")
+death_prefab = ExtResource("2_6aeej")
 
 [node name="AfterExplosion1" type="AnimatedSprite2D" parent="."]
 y_sort_enabled = true

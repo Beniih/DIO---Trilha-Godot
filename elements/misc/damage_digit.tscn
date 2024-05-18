@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://brf58ikjbsdie"]
 
-[ext_resource type="Script" path="res://elements/effects/damage_digit.gd" id="1_12xjx"]
+[ext_resource type="Script" path="res://elements/misc/damage_digit.gd" id="1_12xjx"]
 [ext_resource type="FontFile" uid="uid://bhd8atvvl47cl" path="res://addons/fonts/medieval_sharp/MedievalSharp-BoldOblique.ttf" id="1_xhg1j"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_iglyb"]

@@ -612,7 +612,6 @@ parameters/blend_position = Vector2(0, 0)
 z_index = 10
 
 [node name="hp_bar" type="ProgressBar" parent="hp_bar_anchor"]
-anchors_preset = -1
 offset_left = -30.0
 offset_top = 40.0
 offset_right = 30.0

@@ -1,10 +1,10 @@
 [gd_scene load_steps=12 format=3 uid="uid://c57tpps4illul"]
 
-[ext_resource type="PackedScene" uid="uid://ci66s8280laeq" path="res://elements/effects/explosion.tscn" id="1_ncyii"]
+[ext_resource type="PackedScene" uid="uid://ci66s8280laeq" path="res://elements/misc/explosion.tscn" id="1_ncyii"]
 [ext_resource type="Texture2D" uid="uid://b5vfadlooitdp" path="res://addons/Tiny Swords (Update 010)/Terrain/Ground/Tilemap_Flat.png" id="1_u5xfi"]
-[ext_resource type="PackedScene" uid="uid://db46qaqllqnlj" path="res://elements/effects/fire.tscn" id="2_ae2wm"]
+[ext_resource type="PackedScene" uid="uid://db46qaqllqnlj" path="res://elements/misc/fire.tscn" id="2_ae2wm"]
 [ext_resource type="PackedScene" uid="uid://c3bmnn4sr1cc7" path="res://elements/terrain/rock_01.tscn" id="3_5aqfn"]
-[ext_resource type="PackedScene" uid="uid://b8msl7rqtv4k4" path="res://elements/effects/death_skull.tscn" id="4_0aq5c"]
+[ext_resource type="PackedScene" uid="uid://b8msl7rqtv4k4" path="res://elements/misc/death_skull.tscn" id="4_0aq5c"]
 [ext_resource type="PackedScene" uid="uid://bk6omcyiwcgr5" path="res://elements/player/player.tscn" id="5_2wyig"]
 [ext_resource type="PackedScene" uid="uid://dylncmicpc1u7" path="res://elements/enemies/red_goblin.tscn" id="6_aes5w"]
 [ext_resource type="PackedScene" uid="uid://dcfa5f4wuxto" path="res://elements/enemies/barrel_goblin.tscn" id="7_myepl"]
