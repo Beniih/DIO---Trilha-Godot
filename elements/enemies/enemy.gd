@@ -3,6 +3,8 @@ extends CharacterBody2D
 
 @export var health: int = 10
 @export var death_prefab: PackedScene
+@onready var damage_digit_anchor: Marker2D = $DamageDigitAnchor
+const DAMAGE_DIGIT: PackedScene = preload("res://elements/effects/damage_digit.tscn")
 var attacking: bool = false
 var can_attack: bool = true
 var player_position: Vector2 = Vector2(0.0,0.0)
@@ -29,9 +31,15 @@ func attack() -> void: # call attack
 
 
 func take_damage(amount):
+	var damage_digit = DAMAGE_DIGIT.instantiate()
 	var tween = create_tween()
 	tween.set_trans(Tween.TRANS_BOUNCE)
 	health -= amount
+	# spawn damage digit
+	damage_digit.value = amount
+	damage_digit.global_position = damage_digit_anchor.global_position
+	get_parent().add_child(damage_digit)
+	# check if it's alive
 	if health <= 0:
 		call_deferred("die")
 	modulate = Color.RED

@@ -1,4 +1,4 @@
-[gd_scene load_steps=73 format=3 uid="uid://bk6omcyiwcgr5"]
+[gd_scene load_steps=75 format=3 uid="uid://bk6omcyiwcgr5"]
 
 [ext_resource type="Script" path="res://elements/player/player.gd" id="1_86aie"]
 [ext_resource type="Texture2D" uid="uid://dt1hb8qr7n6vw" path="res://addons/Tiny Swords (Update 010)/Factions/Knights/Troops/Warrior/Blue/Warrior_Blue.png" id="1_c4e3p"]
@@ -553,6 +553,25 @@ blend_point_11/pos = Vector2(0.1, -0.2)
 triangles = PackedInt32Array(0, 5, 6, 0, 3, 6, 4, 5, 7, 5, 6, 7, 2, 3, 9, 3, 6, 9, 7, 8, 10, 1, 8, 10, 4, 7, 10, 8, 9, 11, 2, 9, 11, 1, 8, 11)
 blend_mode = 1
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sqkig"]
+bg_color = Color(0, 0, 0, 0.705882)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_axv4u"]
+bg_color = Color(0.109804, 0.717647, 0.313726, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 y_sort_enabled = true
 collision_mask = 3
@@ -588,5 +607,23 @@ reset_on_save = false
 tree_root = SubResource("AnimationNodeBlendSpace2D_ilydg")
 anim_player = NodePath("../MovementAnimation")
 parameters/blend_position = Vector2(0, 0)
+
+[node name="hp_bar_anchor" type="Node2D" parent="."]
+z_index = 10
+
+[node name="hp_bar" type="ProgressBar" parent="hp_bar_anchor"]
+anchors_preset = -1
+offset_left = -30.0
+offset_top = 40.0
+offset_right = 30.0
+offset_bottom = 48.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(30, 4)
+theme_override_styles/background = SubResource("StyleBoxFlat_sqkig")
+theme_override_styles/fill = SubResource("StyleBoxFlat_axv4u")
+max_value = 10.0
+value = 10.0
+show_percentage = false
 
 [connection signal="animation_finished" from="KnighBlue" to="." method="_on_knigh_blue_animation_finished"]

@@ -340,6 +340,7 @@ animations = [{
 }]
 
 [node name="Barrel_Goblin" type="CharacterBody2D" groups=["enemy"]]
+y_sort_enabled = true
 collision_mask = 3
 script = ExtResource("1_2itak")
 health = 2
@@ -385,3 +386,6 @@ y_sort_enabled = true
 position = Vector2(31, -16)
 scale = Vector2(0.35, 0.35)
 sprite_frames = SubResource("SpriteFrames_g4axa")
+
+[node name="DamageDigitAnchor" type="Marker2D" parent="."]
+position = Vector2(0, -25)

@@ -1,7 +1,7 @@
 class_name Player
 extends CharacterBody2D
 #---------------------status------------------------#
-var nivel: int = 10
+var nivel: int = 1
 var xp: int = 0
 var strenght: int = 1
 var thougness: int = 1
@@ -13,6 +13,7 @@ var max_stats: int = 10
 @onready var knigh_blue: AnimatedSprite2D = $KnighBlue
 @onready var attack_colision: Area2D = $AttackColision
 @export var health: int = 10
+@onready var hp_bar: ProgressBar = $hp_bar_anchor/hp_bar
 var max_health: int
 var character_facing = "right"
 var input_vector: Vector2 = Vector2(0.0,0.0)
@@ -30,6 +31,9 @@ func _process(delta: float) -> void:
 	if abs(input_vector.y) < .2:
 		input_vector.y = 0.0
 	input_vector.normalized()
+	print(max_health," - ", health)
+	hp_bar.max_value = max_health
+	hp_bar.value = health
 
 
 func _physics_process(delta: float) -> void:
@@ -113,7 +117,6 @@ func take_damage(amount):
 	health -= amount
 	if health <= 0:
 		get_tree().call_deferred("reload_current_scene")
-	#tween.tween_property($Sprite, "skew",.6,.1)
 	modulate = Color.RED
 	tween.tween_property(self, "modulate", Color.WHITE, 0.3)
 
