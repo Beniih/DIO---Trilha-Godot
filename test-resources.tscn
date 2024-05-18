@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bk6omcyiwcgr5" path="res://elements/player/player.tscn" id="5_2wyig"]
 [ext_resource type="PackedScene" uid="uid://dylncmicpc1u7" path="res://elements/enemies/red_goblin.tscn" id="6_aes5w"]
 [ext_resource type="PackedScene" uid="uid://dcfa5f4wuxto" path="res://elements/enemies/barrel_goblin.tscn" id="7_myepl"]
-[ext_resource type="Script" path="res://camera_follow.gd" id="8_jmqqj"]
+[ext_resource type="Script" path="res://elements/camera_follow.gd" id="8_jmqqj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rlnee"]
 texture = ExtResource("1_u5xfi")

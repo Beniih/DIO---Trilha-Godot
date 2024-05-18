@@ -555,13 +555,16 @@ blend_mode = 1
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 y_sort_enabled = true
+collision_mask = 3
 motion_mode = 1
 script = ExtResource("1_86aie")
 
 [node name="KnighBlue" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 32)
 sprite_frames = SubResource("SpriteFrames_aie1p")
 animation = &"idle"
 autoplay = "idle"
+offset = Vector2(0, -32)
 
 [node name="AttackColision" type="Area2D" parent="."]
 position = Vector2(1, 15)

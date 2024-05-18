@@ -260,14 +260,16 @@ radius = 90.0
 
 [node name="Red_Goblin" type="CharacterBody2D" groups=["enemy"]]
 y_sort_enabled = true
+collision_mask = 3
 script = ExtResource("1_ye8de")
 death_prefab = ExtResource("2_31oh8")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 28)
 sprite_frames = SubResource("SpriteFrames_byosy")
-animation = &"attack_side"
+animation = &"idle"
 autoplay = "run"
-frame = 3
+offset = Vector2(0, -28)
 
 [node name="BodyShape" type="CollisionShape2D" parent="."]
 position = Vector2(1, 18)

@@ -21,6 +21,8 @@ func attack_decide(pos: Vector2, player_pos: Vector2, attacking: bool, can_attac
 func deal_damage() -> void:
 	while sprite.frame < 1:
 		await  get_tree().process_frame
+	$"../AfterExplosion1".play("default")
+	$"../AfterExplosion2".play("default")
 	var bodies = attack_range.get_overlapping_bodies()
 	for body in bodies:
 		if is_instance_valid(body) and body != get_parent():

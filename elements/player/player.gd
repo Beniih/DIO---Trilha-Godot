@@ -119,7 +119,7 @@ func take_damage(amount):
 
 
 func get_xp(amount):
-	var to_next_level: int = 75 + ((nivel - 1) * 5) + (nivel * nivel * 25)
+	var to_next_level: int = 75 + ((nivel - 1) * 35) + (nivel * nivel * 25)
 	xp += amount
 	if xp >= to_next_level:
 		nivel += 1
