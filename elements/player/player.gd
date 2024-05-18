@@ -15,6 +15,8 @@ var max_stats: int = 10
 @onready var attack_colision: Area2D = $AttackColision
 @export var health: int = 10
 @onready var hp_bar: ProgressBar = $hp_bar_anchor/hp_bar
+var gold_count: int = 0
+const AURA = preload("res://elements/misc/aura.tscn")
 var max_health: int
 var character_facing = "right"
 var input_vector: Vector2 = Vector2(0.0,0.0)
@@ -35,11 +37,14 @@ func _process(delta: float) -> void:
 	input_vector.normalized()
 	hp_bar.max_value = max_health
 	hp_bar.value = health
+	GameManager.player_position = position
+	GameManager.gold_count = gold_count
+	GameManager.total_xp = xp
 
 
 func _physics_process(delta: float) -> void:
 	var target_velocity = input_vector * (speed + (agility * 10))
-
+# avoid move while attacking
 	if !animation_tree.active:
 		return
 
@@ -47,7 +52,6 @@ func _physics_process(delta: float) -> void:
 
 	velocity = lerp(velocity, target_velocity, .1)
 	move_and_slide()
-	GameManager.player_position = position
 
 
 func _input(event: InputEvent) -> void:
@@ -56,23 +60,18 @@ func _input(event: InputEvent) -> void:
 		can_attack = false
 		if input_vector.y > .75:
 			character_facing = "down"
+			knigh_blue.set_animation("attack_down_01")
 		elif input_vector.y < -.75:
 			character_facing = "up"
+			knigh_blue.set_animation("attack_up_01")
 		elif knigh_blue.flip_h:
 			character_facing = "left"
+			knigh_blue.set_animation("attack_side_01")
 		else:
 			character_facing = "right"
+			knigh_blue.set_animation("attack_side_01")
 
-		match character_facing:
-			"up":
-				knigh_blue.set_animation("attack_up_01")
-			"down":
-				knigh_blue.set_animation("attack_down_01")
-			"left":
-				knigh_blue.set_animation("attack_side_01")
-			"right":
-				knigh_blue.set_animation("attack_side_01")
-		knigh_blue.play()
+		knigh_blue.play() # avoid behavior where animation stops
 		deal_damage()
 
 
@@ -108,8 +107,10 @@ func deal_damage() -> void:
 # calculate if enemy get hited and hit
 			var dot_product = direction_to_enemy.dot(atack_direction)
 			if dot_product >= .35:
-				var dmg: int = strenght + (nivel / 2)
-				body.take_damage(dmg, true)
+				var dmg: int = strenght + int(nivel / 2)
+				if randf() <= .2:
+					dmg *= 2
+				body.take_damage(dmg+5, true)
 
 
 func take_damage(amount):
@@ -128,8 +129,15 @@ func get_xp(amount):
 		nivel += 1
 		to_next_level = 75 + ((nivel - 1) * 35) + (nivel * nivel * 25)
 		max_health = (nivel * 5) + (thougness * 5)
-		GameManager.change_dificult(nivel)
+		GameManager.nivel = nivel
+
 
 func regen_health(amout):
 	health += amout
 	health = clamp(health,0,max_health)
+
+
+func _on_aura_timer_timeout() -> void:
+	if AURA:
+		var magic_aura = AURA.instantiate()
+		add_child(magic_aura)

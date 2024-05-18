@@ -1,0 +1,89 @@
+[gd_scene load_steps=12 format=3 uid="uid://cewgu8at13p66"]
+
+[ext_resource type="Texture2D" uid="uid://byw0uxxkhppak" path="res://addons/Tiny Swords (Update 010)/Resources/Resources/G_Spawn.png" id="1_0wci4"]
+[ext_resource type="Script" path="res://elements/misc/gold_sack.gd" id="2_hh3ob"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3haa7"]
+atlas = ExtResource("1_0wci4")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bqaph"]
+atlas = ExtResource("1_0wci4")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wk6qs"]
+atlas = ExtResource("1_0wci4")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3eatx"]
+atlas = ExtResource("1_0wci4")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n78kc"]
+atlas = ExtResource("1_0wci4")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6pnjt"]
+atlas = ExtResource("1_0wci4")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kp86a"]
+atlas = ExtResource("1_0wci4")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pq3d4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3haa7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bqaph")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wk6qs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3eatx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n78kc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6pnjt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kp86a")
+}],
+"loop": false,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_foi11"]
+radius = 15.0
+height = 40.0
+
+[node name="GoldSack" type="AnimatedSprite2D"]
+y_sort_enabled = true
+sprite_frames = SubResource("SpriteFrames_pq3d4")
+autoplay = "default"
+frame = 6
+frame_progress = 1.0
+offset = Vector2(0, -28)
+script = ExtResource("2_hh3ob")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(3, -13)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_foi11")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+autostart = true
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

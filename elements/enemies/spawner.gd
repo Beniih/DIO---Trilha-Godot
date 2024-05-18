@@ -39,7 +39,7 @@ func spawn_monster() -> void:
 
 func pick_point() -> Vector2:
 	randomize()
-	var point: Vector2
+	var point: Vector2 = Vector2()
 	point.x = randi_range(anchor_1.position.x, anchor_2.position.x)
 	point.y = randi_range(anchor_1.position.y, anchor_2.position.y)
 	return point
@@ -47,5 +47,6 @@ func pick_point() -> Vector2:
 
 func _on_timer_timeout() -> void:
 	if wave.is_empty(): # start a new wave
+		GameManager.change_dificult()
 		create_wave(GameManager.fator_wave)
 	spawn_monster()

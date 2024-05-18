@@ -1,11 +1,79 @@
-[gd_scene load_steps=4 format=3 uid="uid://0sh7h4og2yx3"]
+[gd_scene load_steps=19 format=3 uid="uid://0sh7h4og2yx3"]
 
 [ext_resource type="Script" path="res://elements/UI/gui.gd" id="1_a8jl1"]
 [ext_resource type="FontFile" uid="uid://cqddsfni5wrn1" path="res://addons/fonts/medieval_sharp/MedievalSharp-Bold.ttf" id="2_0jt75"]
+[ext_resource type="Texture2D" uid="uid://dgcki5pobjd1s" path="res://addons/Tiny Swords (Update 010)/UI/Banners/Banner_Connection_Right.png" id="3_tfijp"]
+[ext_resource type="Texture2D" uid="uid://dov8m0bo5jiqq" path="res://addons/Tiny Swords (Update 010)/Resources/Resources/G_Idle_(NoShadow).png" id="4_awpnu"]
+[ext_resource type="FontFile" uid="uid://bhd8atvvl47cl" path="res://addons/fonts/medieval_sharp/MedievalSharp-BoldOblique.ttf" id="5_ssi1e"]
+[ext_resource type="Texture2D" uid="uid://bligfgtpfawkk" path="res://addons/Tiny Swords (Update 010)/UI/Banners/Carved_9Slides.png" id="6_sskwk"]
+[ext_resource type="FontFile" uid="uid://wicj3nmkdr2y" path="res://addons/fonts/medieval_sharp/MedievalSharp-BookOblique.ttf" id="7_ypimy"]
+[ext_resource type="FontFile" uid="uid://b612n3l5xwoiv" path="res://addons/fonts/medieval_sharp/MedievalSharp-Book.ttf" id="8_7ln46"]
+[ext_resource type="Texture2D" uid="uid://bq4ditdatvprk" path="res://addons/Tiny Swords (Update 010)/UI/Buttons/Button_Blue_9Slides.png" id="9_mkwud"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_wi2kb"]
 font = ExtResource("2_0jt75")
 font_size = 50
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yy0gt"]
+texture = ExtResource("3_tfijp")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 48.0
+texture_margin_bottom = 48.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 2
+region_rect = Rect2(48, 48, 144, 128)
+
+[sub_resource type="LabelSettings" id="LabelSettings_k6x3o"]
+font = ExtResource("5_ssi1e")
+font_size = 32
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_iukqy"]
+texture = ExtResource("6_sskwk")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 2
+region_rect = Rect2(0, 0, 192, 192)
+modulate_color = Color(1, 1, 1, 0.705882)
+
+[sub_resource type="LabelSettings" id="LabelSettings_3j3xp"]
+font = ExtResource("7_ypimy")
+font_size = 32
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_1pavo"]
+font = ExtResource("8_7ln46")
+font_size = 48
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h8mf3"]
+texture = ExtResource("9_mkwud")
+texture_margin_left = 32.0
+texture_margin_top = 32.0
+texture_margin_right = 32.0
+texture_margin_bottom = 32.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 2
+region_rect = Rect2(0, 0, 192, 192)
+
+[sub_resource type="LabelSettings" id="LabelSettings_mdmft"]
+font = ExtResource("2_0jt75")
+font_size = 32
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_q8eym"]
+font = ExtResource("5_ssi1e")
+font_size = 48
 outline_size = 5
 outline_color = Color(0, 0, 0, 1)
 
@@ -24,3 +92,126 @@ grow_horizontal = 2
 size_flags_horizontal = 4
 text = "00:00"
 label_settings = SubResource("LabelSettings_wi2kb")
+
+[node name="GoldPanel" type="Panel" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -202.0
+offset_top = 15.0
+offset_right = -27.0
+offset_bottom = 105.0
+grow_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxTexture_yy0gt")
+
+[node name="GoldIcon" type="TextureRect" parent="GoldPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -107.0
+offset_top = -75.0
+offset_right = -6.99963
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_awpnu")
+expand_mode = 1
+
+[node name="GoldCount" type="Label" parent="GoldPanel"]
+layout_direction = 2
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.9996
+offset_top = -35.0
+offset_right = 23.0004
+offset_bottom = 5.00001
+grow_horizontal = 2
+grow_vertical = 2
+text = "10"
+label_settings = SubResource("LabelSettings_k6x3o")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScorePanel" type="Panel" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -98.0
+offset_right = 300.0
+offset_bottom = -8.0
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxTexture_iukqy")
+
+[node name="ScoreText" type="Label" parent="ScorePanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -135.0
+offset_top = -42.0
+offset_right = -57.0
+offset_bottom = -1.99999
+grow_horizontal = 2
+grow_vertical = 2
+text = "Score"
+label_settings = SubResource("LabelSettings_3j3xp")
+
+[node name="ScoreCount" type="Label" parent="ScorePanel"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -180.0
+offset_top = -65.0
+offset_right = -55.9999
+offset_bottom = -5.99997
+grow_horizontal = 0
+grow_vertical = 0
+text = "0"
+label_settings = SubResource("LabelSettings_1pavo")
+
+[node name="NivelPanel" type="Panel" parent="."]
+offset_left = 15.0
+offset_top = 15.0
+offset_right = 215.0
+offset_bottom = 112.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_h8mf3")
+
+[node name="NivelText" type="Label" parent="NivelPanel"]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 15.0
+offset_right = 115.0
+offset_bottom = 63.0
+text = "Nível"
+label_settings = SubResource("LabelSettings_mdmft")
+vertical_alignment = 1
+
+[node name="Nivel" type="Label" parent="NivelPanel"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -90.0
+offset_top = -38.5
+offset_right = -37.0
+offset_bottom = 20.5
+grow_horizontal = 0
+grow_vertical = 2
+text = "10"
+label_settings = SubResource("LabelSettings_q8eym")
+horizontal_alignment = 1
+vertical_alignment = 1

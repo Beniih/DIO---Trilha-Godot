@@ -35,14 +35,15 @@ func attack() -> void: # call attack
 
 
 func take_damage(amount, player: bool = false):
-	var damage_digit = DAMAGE_DIGIT.instantiate()
 	var tween = create_tween()
 	tween.set_trans(Tween.TRANS_BOUNCE)
 	health -= amount
 	# spawn damage digit
-	damage_digit.value = amount
-	damage_digit.global_position = damage_digit_anchor.global_position
-	get_parent().add_child(damage_digit)
+	if damage_digit_anchor and DAMAGE_DIGIT:
+		var damage_digit = DAMAGE_DIGIT.instantiate()
+		damage_digit.value = amount
+		damage_digit.global_position = damage_digit_anchor.global_position
+		get_parent().add_child(damage_digit)
 	# check if it's alive
 	if health <= 0:
 		call_deferred("die", player)

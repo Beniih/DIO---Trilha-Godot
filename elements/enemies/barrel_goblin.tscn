@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://dcfa5f4wuxto"]
+[gd_scene load_steps=54 format=3 uid="uid://dcfa5f4wuxto"]
 
 [ext_resource type="Script" path="res://elements/enemies/enemy.gd" id="1_2itak"]
 [ext_resource type="Script" path="res://elements/enemies/behaviors/follow_player.gd" id="1_u3kqv"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://p6c667etfbkk" path="res://addons/Tiny Swords (Update 010)/Factions/Goblins/Troops/Barrel/Red/Barrel_Red.png" id="2_ffr7t"]
 [ext_resource type="Texture2D" uid="uid://ccbp0syqp7ehq" path="res://addons/Tiny Swords (Update 010)/Effects/Explosion/Explosions.png" id="2_q23eu"]
 [ext_resource type="PackedScene" uid="uid://cc6ae8esforia" path="res://elements/misc/meat.tscn" id="3_jfxey"]
+[ext_resource type="PackedScene" uid="uid://cewgu8at13p66" path="res://elements/misc/gold_sack.tscn" id="4_mxggi"]
 [ext_resource type="Script" path="res://elements/enemies/BarrelAttackNode.gd" id="4_t25ip"]
 [ext_resource type="Script" path="res://elements/enemies/behaviors/DeathObjectTorch.gd" id="7_6nadf"]
 
@@ -346,7 +347,7 @@ collision_mask = 3
 script = ExtResource("1_2itak")
 health = 2
 death_prefab = ExtResource("2_6aeej")
-itens = Array[PackedScene]([ExtResource("3_jfxey")])
+itens = Array[PackedScene]([ExtResource("3_jfxey"), ExtResource("4_mxggi")])
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, 28)

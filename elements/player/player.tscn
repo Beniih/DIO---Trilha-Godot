@@ -1,4 +1,4 @@
-[gd_scene load_steps=75 format=3 uid="uid://bk6omcyiwcgr5"]
+[gd_scene load_steps=69 format=3 uid="uid://bk6omcyiwcgr5"]
 
 [ext_resource type="Script" path="res://elements/player/player.gd" id="1_86aie"]
 [ext_resource type="Texture2D" uid="uid://dt1hb8qr7n6vw" path="res://addons/Tiny Swords (Update 010)/Factions/Knights/Troops/Warrior/Blue/Warrior_Blue.png" id="1_c4e3p"]
@@ -23,10 +23,6 @@ region = Rect2(576, 768, 192, 192)
 atlas = ExtResource("1_c4e3p")
 region = Rect2(768, 768, 192, 192)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_x8bql"]
-atlas = ExtResource("1_c4e3p")
-region = Rect2(960, 768, 192, 192)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_nnnqn"]
 atlas = ExtResource("1_c4e3p")
 region = Rect2(0, 960, 192, 192)
@@ -46,10 +42,6 @@ region = Rect2(576, 960, 192, 192)
 [sub_resource type="AtlasTexture" id="AtlasTexture_r46h8"]
 atlas = ExtResource("1_c4e3p")
 region = Rect2(768, 960, 192, 192)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_y1yk3"]
-atlas = ExtResource("1_c4e3p")
-region = Rect2(960, 960, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_loper"]
 atlas = ExtResource("1_c4e3p")
@@ -71,10 +63,6 @@ region = Rect2(576, 384, 192, 192)
 atlas = ExtResource("1_c4e3p")
 region = Rect2(768, 384, 192, 192)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_vfxio"]
-atlas = ExtResource("1_c4e3p")
-region = Rect2(960, 384, 192, 192)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_2m2el"]
 atlas = ExtResource("1_c4e3p")
 region = Rect2(0, 576, 192, 192)
@@ -94,10 +82,6 @@ region = Rect2(576, 576, 192, 192)
 [sub_resource type="AtlasTexture" id="AtlasTexture_qetsl"]
 atlas = ExtResource("1_c4e3p")
 region = Rect2(768, 576, 192, 192)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ndifg"]
-atlas = ExtResource("1_c4e3p")
-region = Rect2(960, 576, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oupnv"]
 atlas = ExtResource("1_c4e3p")
@@ -119,10 +103,6 @@ region = Rect2(576, 1152, 192, 192)
 atlas = ExtResource("1_c4e3p")
 region = Rect2(768, 1152, 192, 192)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_5bten"]
-atlas = ExtResource("1_c4e3p")
-region = Rect2(960, 1152, 192, 192)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_1brv4"]
 atlas = ExtResource("1_c4e3p")
 region = Rect2(0, 1344, 192, 192)
@@ -142,10 +122,6 @@ region = Rect2(576, 1344, 192, 192)
 [sub_resource type="AtlasTexture" id="AtlasTexture_w2l0t"]
 atlas = ExtResource("1_c4e3p")
 region = Rect2(768, 1344, 192, 192)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_re2c6"]
-atlas = ExtResource("1_c4e3p")
-region = Rect2(960, 1344, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8xx1p"]
 atlas = ExtResource("1_c4e3p")
@@ -212,9 +188,6 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_g7ebj")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_x8bql")
 }],
 "loop": false,
 "name": &"attack_down_01",
@@ -235,9 +208,6 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_r46h8")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_y1yk3")
 }],
 "loop": false,
 "name": &"attack_down_02",
@@ -258,9 +228,6 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_fevvh")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_vfxio")
 }],
 "loop": false,
 "name": &"attack_side_01",
@@ -281,9 +248,6 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_qetsl")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ndifg")
 }],
 "loop": false,
 "name": &"attack_side_02",
@@ -304,9 +268,6 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_v8rne")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_5bten")
 }],
 "loop": false,
 "name": &"attack_up_01",
@@ -327,9 +288,6 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_w2l0t")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_re2c6")
 }],
 "loop": false,
 "name": &"attack_up_02",
@@ -625,4 +583,9 @@ max_value = 10.0
 value = 10.0
 show_percentage = false
 
+[node name="AuraTimer" type="Timer" parent="."]
+wait_time = 40.0
+autostart = true
+
 [connection signal="animation_finished" from="KnighBlue" to="." method="_on_knigh_blue_animation_finished"]
+[connection signal="timeout" from="AuraTimer" to="." method="_on_aura_timer_timeout"]

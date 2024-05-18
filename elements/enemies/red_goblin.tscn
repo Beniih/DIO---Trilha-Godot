@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://dylncmicpc1u7"]
+[gd_scene load_steps=42 format=3 uid="uid://dylncmicpc1u7"]
 
 [ext_resource type="Texture2D" uid="uid://gjoym8xolb6f" path="res://addons/Tiny Swords (Update 010)/Factions/Goblins/Troops/Torch/Red/Torch_Red.png" id="1_boq6i"]
 [ext_resource type="Script" path="res://elements/enemies/enemy.gd" id="1_ye8de"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://b8msl7rqtv4k4" path="res://elements/misc/death_skull.tscn" id="2_8bqtk"]
 [ext_resource type="Script" path="res://elements/enemies/TorchAttackNode.gd" id="3_ffgak"]
 [ext_resource type="PackedScene" uid="uid://cc6ae8esforia" path="res://elements/misc/meat.tscn" id="3_o5l4c"]
+[ext_resource type="PackedScene" uid="uid://cewgu8at13p66" path="res://elements/misc/gold_sack.tscn" id="4_kf7ce"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2tqd4"]
 atlas = ExtResource("1_boq6i")
@@ -264,12 +265,12 @@ y_sort_enabled = true
 collision_mask = 3
 script = ExtResource("1_ye8de")
 death_prefab = ExtResource("2_8bqtk")
-itens = Array[PackedScene]([ExtResource("3_o5l4c")])
+itens = Array[PackedScene]([ExtResource("3_o5l4c"), ExtResource("4_kf7ce")])
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, 28)
 sprite_frames = SubResource("SpriteFrames_byosy")
-animation = &"idle"
+animation = &"attack_side"
 autoplay = "run"
 offset = Vector2(0, -28)
 
