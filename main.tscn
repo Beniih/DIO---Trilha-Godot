@@ -1,6 +1,7 @@
 [gd_scene load_steps=42 format=3 uid="uid://ckuf7vriajc0q"]
 
 [ext_resource type="Texture2D" uid="uid://b5vfadlooitdp" path="res://addons/Tiny Swords (Update 010)/Terrain/Ground/Tilemap_Flat.png" id="1_1encq"]
+[ext_resource type="Script" path="res://main.gd" id="1_7qvjw"]
 [ext_resource type="Texture2D" uid="uid://dprc58hd0wjx8" path="res://addons/Tiny Swords (Update 010)/Terrain/Water/Water.png" id="2_3khie"]
 [ext_resource type="Texture2D" uid="uid://egkymfdjest" path="res://addons/Tiny Swords (Update 010)/Terrain/Water/Foam/tile000.png" id="3_6f2ye"]
 [ext_resource type="Texture2D" uid="uid://c35ixcsig16ps" path="res://addons/Tiny Swords (Update 010)/Resources/Trees/tile000.png" id="3_c5fmw"]
@@ -24,8 +25,7 @@
 [ext_resource type="Texture2D" uid="uid://dsfqu3pibywk0" path="res://addons/Tiny Swords (Update 010)/Terrain/Ground/Tilemap_Elevation.png" id="11_i0gqb"]
 [ext_resource type="PackedScene" uid="uid://c3bmnn4sr1cc7" path="res://elements/terrain/rock_01.tscn" id="12_8gwej"]
 [ext_resource type="Texture2D" uid="uid://kbttvmbjuybc" path="res://addons/Tiny Swords (Update 010)/Factions/Knights/Buildings/House/House_Blue.png" id="12_fv047"]
-[ext_resource type="PackedScene" uid="uid://dcfa5f4wuxto" path="res://elements/enemies/barrel_goblin.tscn" id="24_5l0l7"]
-[ext_resource type="PackedScene" uid="uid://dylncmicpc1u7" path="res://elements/enemies/red_goblin.tscn" id="25_6xtyp"]
+[ext_resource type="PackedScene" uid="uid://ckcocq52kkr0h" path="res://elements/enemies/spawner.tscn" id="26_81e00"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_68r5q"]
 texture = ExtResource("1_1encq")
@@ -488,6 +488,9 @@ sources/17 = SubResource("TileSetAtlasSource_owtl7")
 
 [node name="Main" type="Node2D"]
 y_sort_enabled = true
+script = ExtResource("1_7qvjw")
+
+[node name="Spawner" parent="." instance=ExtResource("26_81e00")]
 
 [node name="TileMap" type="TileMap" parent="."]
 y_sort_enabled = true
@@ -693,27 +696,3 @@ position = Vector2(2453, 765)
 position = Vector2(2452, 782)
 script = ExtResource("4_s7wjo")
 target = NodePath("../Player")
-
-[node name="Barrel_Goblin" parent="." instance=ExtResource("24_5l0l7")]
-position = Vector2(484, 1163)
-
-[node name="Barrel_Goblin2" parent="." instance=ExtResource("24_5l0l7")]
-position = Vector2(469, 582)
-
-[node name="Barrel_Goblin3" parent="." instance=ExtResource("24_5l0l7")]
-position = Vector2(3457, 159)
-
-[node name="Barrel_Goblin4" parent="." instance=ExtResource("24_5l0l7")]
-position = Vector2(3438, 1177)
-
-[node name="Red_Goblin" parent="." instance=ExtResource("25_6xtyp")]
-position = Vector2(1164, 1191)
-
-[node name="Red_Goblin2" parent="." instance=ExtResource("25_6xtyp")]
-position = Vector2(1226, 316)
-
-[node name="Red_Goblin3" parent="." instance=ExtResource("25_6xtyp")]
-position = Vector2(2396, 178)
-
-[node name="Red_Goblin4" parent="." instance=ExtResource("25_6xtyp")]
-position = Vector2(2220, 1129)
