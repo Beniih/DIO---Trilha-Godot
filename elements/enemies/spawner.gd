@@ -5,9 +5,10 @@ extends Node2D
 @onready var anchor_2: Node2D = $Anchor2 # of the mob spawn
 @onready var screen_check: VisibleOnScreenNotifier2D = $ScreenCheck
 @onready var timer: Timer = $Timer
-
+@onready var new_challenges: Timer = $NewChallenges
 
 @export var monster_listt: Array[PackedScene]
+@export var monster_new: Array[PackedScene]
 var wave: Array
 
 func create_wave(factor: int):
@@ -19,8 +20,12 @@ func create_wave(factor: int):
 		else:
 			wave.append(monster)
 			i -= monster.health
+		if i <= 0:
+			break
+		await Engine.get_main_loop().process_frame
 	timer.wait_time = 60.0 / float(wave.size())
 	timer.start()
+
 
 func spawn_monster() -> void:
 	if !wave.is_empty():
@@ -30,12 +35,16 @@ func spawn_monster() -> void:
 		while screen_check.is_on_screen(): # avoid spawn mob on the screen
 			spawn_position = pick_point()
 			screen_check.position = spawn_position
-			await  get_tree().process_frame #wait 1 frame to avoid freezing
+			#await  get_tree().process_frame #wait 1 frame to avoid freezing
+			if !screen_check.is_on_screen():
+				break
+			await Engine.get_main_loop().process_frame
 		var monster = wave[0]
 		monster.position = spawn_position
 		self.get_parent().add_child(monster)
 		wave.pop_front()
 		timer.start()
+
 
 func pick_point() -> Vector2:
 	randomize()
@@ -46,7 +55,16 @@ func pick_point() -> Vector2:
 
 
 func _on_timer_timeout() -> void:
+	if GameManager.game_over:
+		return
 	if wave.is_empty(): # start a new wave
 		GameManager.change_dificult()
 		create_wave(GameManager.fator_wave)
 	spawn_monster()
+
+
+func _on_new_challenges_timeout() -> void:
+	if monster_new.size() > 0:
+		monster_listt.append(monster_new[0])
+		monster_new.pop_front()
+		new_challenges.start()

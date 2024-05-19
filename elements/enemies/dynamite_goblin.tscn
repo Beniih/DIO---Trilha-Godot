@@ -1,9 +1,13 @@
-[gd_scene load_steps=27 format=3 uid="uid://cylaxajg5hesf"]
+[gd_scene load_steps=30 format=3 uid="uid://cylaxajg5hesf"]
 
 [ext_resource type="Script" path="res://elements/enemies/enemy.gd" id="1_3nnvt"]
 [ext_resource type="Texture2D" uid="uid://cuemrv5k3q2q1" path="res://addons/Tiny Swords (Update 010)/Factions/Goblins/Troops/TNT/Yellow/TNT_Yellow.png" id="1_h2cqf"]
+[ext_resource type="PackedScene" uid="uid://b8msl7rqtv4k4" path="res://elements/misc/death_skull.tscn" id="2_ylqil"]
+[ext_resource type="PackedScene" uid="uid://cewgu8at13p66" path="res://elements/misc/gold_sack.tscn" id="3_j1wvi"]
 [ext_resource type="Script" path="res://elements/enemies/AttackNodeTNT.gd" id="3_tkgqy"]
+[ext_resource type="PackedScene" uid="uid://cc6ae8esforia" path="res://elements/misc/meat.tscn" id="4_iyk3e"]
 [ext_resource type="Script" path="res://elements/enemies/behaviors/follow_player.gd" id="4_xmlmi"]
+[ext_resource type="Script" path="res://elements/enemies/TargetMark.gd" id="6_bbhqr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kiqb5"]
 atlas = ExtResource("1_h2cqf")
@@ -160,21 +164,17 @@ animations = [{
 radius = 15.0
 height = 56.0
 
-[sub_resource type="Curve2D" id="Curve2D_rqd3o"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, -100, 1, -1, 0, -100, 0, 0, 600, 0)
-}
-point_count = 2
-
-[node name="DynamiteGoblin" type="CharacterBody2D"]
+[node name="DynamiteGoblin" type="CharacterBody2D" groups=["enemy"]]
+motion_mode = 1
 script = ExtResource("1_3nnvt")
+health = 5
+death_prefab = ExtResource("2_ylqil")
+itens = Array[PackedScene]([ExtResource("3_j1wvi"), ExtResource("4_iyk3e")])
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_5mpxq")
-animation = &"attack"
+animation = &"idle"
 autoplay = "idle"
-frame = 6
-frame_progress = 1.0
 offset = Vector2(0, -30)
 
 [node name="BodyShape" type="CollisionShape2D" parent="."]
@@ -182,8 +182,9 @@ position = Vector2(-6, -14)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_ioy2n")
 
-[node name="AttackNode" type="Node" parent="." node_paths=PackedStringArray("sprite")]
+[node name="AttackNode" type="Node" parent="." node_paths=PackedStringArray("target_mark", "sprite")]
 script = ExtResource("3_tkgqy")
+target_mark = NodePath("../TargetMark")
 sprite = NodePath("../Sprite")
 
 [node name="FollowPlayer" type="Node" parent="."]
@@ -192,7 +193,7 @@ script = ExtResource("4_xmlmi")
 [node name="DamageDigitAnchor" type="Marker2D" parent="."]
 position = Vector2(0, -48)
 
-[node name="TNT" type="Node2D" parent="."]
+[node name="TargetMark" type="Marker2D" parent="."]
+script = ExtResource("6_bbhqr")
 
-[node name="Path2D" type="Path2D" parent="TNT"]
-curve = SubResource("Curve2D_rqd3o")
+[node name="DropMark" type="Marker2D" parent="."]

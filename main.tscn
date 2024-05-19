@@ -1,9 +1,10 @@
-[gd_scene load_steps=58 format=3 uid="uid://ckuf7vriajc0q"]
+[gd_scene load_steps=59 format=3 uid="uid://ckuf7vriajc0q"]
 
 [ext_resource type="Texture2D" uid="uid://b5vfadlooitdp" path="res://addons/Tiny Swords (Update 010)/Terrain/Ground/Tilemap_Flat.png" id="1_1encq"]
 [ext_resource type="Script" path="res://main.gd" id="1_7qvjw"]
 [ext_resource type="Texture2D" uid="uid://dprc58hd0wjx8" path="res://addons/Tiny Swords (Update 010)/Terrain/Water/Water.png" id="2_3khie"]
 [ext_resource type="PackedScene" uid="uid://0sh7h4og2yx3" path="res://elements/UI/gui.tscn" id="2_fdkic"]
+[ext_resource type="PackedScene" uid="uid://cuke2l2e8phud" path="res://elements/UI/game_over_ui.tscn" id="2_xwg1t"]
 [ext_resource type="Texture2D" uid="uid://egkymfdjest" path="res://addons/Tiny Swords (Update 010)/Terrain/Water/Foam/tile000.png" id="3_6f2ye"]
 [ext_resource type="Texture2D" uid="uid://c35ixcsig16ps" path="res://addons/Tiny Swords (Update 010)/Resources/Trees/tile000.png" id="3_c5fmw"]
 [ext_resource type="PackedScene" uid="uid://bk6omcyiwcgr5" path="res://elements/player/player.tscn" id="3_oy0uu"]
@@ -567,9 +568,11 @@ sources/7 = SubResource("TileSetAtlasSource_u30qw")
 sources/18 = SubResource("TileSetAtlasSource_nowcm")
 sources/19 = SubResource("TileSetAtlasSource_lcw3d")
 
-[node name="Main" type="Node2D"]
+[node name="Main" type="Node2D" node_paths=PackedStringArray("game_ui")]
 y_sort_enabled = true
 script = ExtResource("1_7qvjw")
+game_ui = NodePath("GUI")
+game_over_template = ExtResource("2_xwg1t")
 
 [node name="GUI" parent="." instance=ExtResource("2_fdkic")]
 

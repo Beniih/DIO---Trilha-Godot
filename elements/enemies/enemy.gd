@@ -5,6 +5,7 @@ extends CharacterBody2D
 @export var death_prefab: PackedScene
 @export var itens: Array[PackedScene]
 @onready var damage_digit_anchor: Marker2D = $DamageDigitAnchor
+@onready var drop_mark: Marker2D = $DropMark
 const DAMAGE_DIGIT: PackedScene = preload("res://elements/misc/damage_digit.tscn")
 var attacking: bool = false
 var can_attack: bool = true
@@ -14,7 +15,10 @@ var xp_amout: int = 0
 func _ready() -> void:
 	xp_amout = health
 
+
 func _physics_process(delta: float) -> void:
+	if GameManager.game_over:
+		return
 	player_position = GameManager.player_position # get player position from singleton
 # decide when close enough and attack if can
 	match $AttackNode.attack_decide(position, player_position, attacking, can_attack):
@@ -57,10 +61,10 @@ func die(player: bool = false):
 		GameManager.xp_received.emit(xp_amout)
 	if itens and drop <= .2:
 		var item = itens.pick_random().instantiate()
-		item.global_position = global_position
+		item.position = drop_mark.global_position
 		get_parent().add_child(item)
 	elif death_prefab:
 		var death_object = death_prefab.instantiate()
-		death_object.position = position
+		death_object.position = drop_mark.global_position
 		get_parent().add_child(death_object)
 	queue_free()

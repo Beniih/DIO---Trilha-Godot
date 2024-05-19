@@ -7,7 +7,6 @@ var to_next_level: int = 100
 var strenght: int = 1
 var thougness: int = 1
 var agility: int = 1
-var max_stats: int = 10
 #---------------------------------------------------#
 @export var speed : float = 190.0
 @onready var animation_tree: AnimationTree = $AnimationTree
@@ -85,7 +84,9 @@ func _on_knigh_blue_animation_finished() -> void:
 func deal_damage() -> void:
 # wait valid attack frame from animation
 	while $KnighBlue.frame < 3:
-		await  get_tree().process_frame
+		if $KnighBlue.frame >= 3:
+			break
+		await Engine.get_main_loop().process_frame
 # get the enemy near
 	var bodies = attack_colision.get_overlapping_bodies()
 	for body in bodies:
@@ -118,7 +119,8 @@ func take_damage(amount):
 	tween.set_trans(Tween.TRANS_BOUNCE)
 	health -= amount
 	if health <= 0:
-		get_tree().call_deferred("reload_current_scene")
+		GameManager.call_game_over()
+		self.queue_free()
 	modulate = Color.RED
 	tween.tween_property(self, "modulate", Color.WHITE, 0.3)
 

@@ -9,4 +9,8 @@ func _ready() -> void:
 			target = get_parent().get_node("Player")
 
 func _process(delta: float) -> void:
+	if GameManager.game_over:
+		return
+	if position.distance_squared_to(target.position) < 1.0:
+		return
 	position = lerp(position,target.position, follow_speed * delta)

@@ -258,27 +258,29 @@ radius = 18.0
 height = 36.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rkdr3"]
-radius = 90.0
+radius = 94.0
 
 [node name="Red_Goblin" type="CharacterBody2D" groups=["enemy"]]
 y_sort_enabled = true
 collision_mask = 3
+motion_mode = 1
 script = ExtResource("1_ye8de")
 death_prefab = ExtResource("2_8bqtk")
 itens = Array[PackedScene]([ExtResource("3_o5l4c"), ExtResource("4_kf7ce")])
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, 28)
+position = Vector2(0, 27)
 sprite_frames = SubResource("SpriteFrames_byosy")
 animation = &"attack_side"
 autoplay = "run"
 offset = Vector2(0, -28)
 
 [node name="BodyShape" type="CollisionShape2D" parent="."]
-position = Vector2(1, 18)
+position = Vector2(1, 17)
 shape = SubResource("CapsuleShape2D_qyigg")
 
 [node name="AttackRange" type="Area2D" parent="."]
+position = Vector2(0, -1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRange"]
 shape = SubResource("CircleShape2D_rkdr3")
@@ -293,4 +295,7 @@ sprite = NodePath("../Sprite")
 script = ExtResource("1_yusl6")
 
 [node name="DamageDigitAnchor" type="Marker2D" parent="."]
-position = Vector2(0, -28)
+position = Vector2(0, -29)
+
+[node name="DropMark" type="Marker2D" parent="."]
+position = Vector2(0, 30)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dsfveoo3xyaej"]
+[gd_scene load_steps=12 format=3 uid="uid://dsfveoo3xyaej"]
 
 [ext_resource type="Script" path="res://elements/misc/aura.gd" id="1_0reav"]
 [ext_resource type="Texture2D" uid="uid://cmed1vfm4xa8y" path="res://addons/Particles/twirl_03.png" id="1_a3ebg"]
@@ -80,11 +80,22 @@ tracks/5/keys = {
 "update": 0,
 "values": [-6.28319]
 }
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath(".:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_shhly"]
 resource_name = "aura_spin"
 length = 2.0
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -181,6 +192,20 @@ tracks/6/keys = {
 }, {
 "args": [],
 "method": &"aura_damage"
+}]
+}
+tracks/7/type = "method"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("AuraSpin")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": ["aura_spin_out", -1, 1.0, false],
+"method": &"play"
 }]
 }
 
@@ -312,11 +337,126 @@ tracks/8/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_3dtt6"]
+resource_name = "aura_spin_out"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Twirl01:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [6.28319, -6.28319]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Twirl02:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -6.28319]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Twirl03:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [6.28319, -6.28319]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Twirl01:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 0.188235, 1, 0.588235), Color(1, 0.341176, 0.286275, 0.588235), Color(0.482353, 0.341176, 0.286275, 0.588235), Color(0.482353, 0.733333, 0.286275, 0.588235), Color(0.482353, 0.733333, 0.835294, 0.588235), Color(0.482353, 0.188235, 0.835294, 0.588235), Color(0.160784, 0.188235, 0.835294, 0.588235), Color(0.160784, 0.760784, 0.835294, 0.588235), Color(0.160784, 0.760784, 0.305882, 0.588235), Color(0.956863, 0.760784, 0.305882, 0.588235)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Twirl02:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 0.188235, 1, 0.588235), Color(1, 0.341176, 0.286275, 0.588235), Color(0.482353, 0.341176, 0.286275, 0.588235), Color(0.482353, 0.733333, 0.286275, 0.588235), Color(0.482353, 0.733333, 0.835294, 0.588235), Color(0.482353, 0.188235, 0.835294, 0.588235), Color(0.160784, 0.188235, 0.835294, 0.588235), Color(0.160784, 0.760784, 0.835294, 0.588235), Color(0.160784, 0.760784, 0.305882, 0.588235), Color(0.956863, 0.760784, 0.305882, 0.588235)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Magic02:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -6.28319]
+}
+tracks/6/type = "method"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath(".")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"values": [{
+"args": [],
+"method": &"aura_damage"
+}, {
+"args": [],
+"method": &"aura_damage"
+}, {
+"args": [],
+"method": &"aura_damage"
+}, {
+"args": [],
+"method": &"aura_damage"
+}, {
+"args": [],
+"method": &"queue_free"
+}]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath(".:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 6),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_s668h"]
 _data = {
 "RESET": SubResource("Animation_j7g1b"),
 "aura_spin": SubResource("Animation_shhly"),
-"aura_spin_enter": SubResource("Animation_ikptq")
+"aura_spin_enter": SubResource("Animation_ikptq"),
+"aura_spin_out": SubResource("Animation_3dtt6")
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_neirc"]
@@ -332,7 +472,7 @@ scale = Vector2(0.45, 0.45)
 texture = ExtResource("1_a3ebg")
 
 [node name="Twirl02" type="Sprite2D" parent="."]
-modulate = Color(0.956863, 0.760784, 0.305882, 0.588235)
+modulate = Color(1, 0.188235, 1, 0.588235)
 rotation = -6.28319
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("2_5wvfr")

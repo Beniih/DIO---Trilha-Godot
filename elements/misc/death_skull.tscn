@@ -111,8 +111,7 @@ animations = [{
 
 [node name="DeathSkull" type="AnimatedSprite2D"]
 y_sort_enabled = true
-position = Vector2(345, 80)
 sprite_frames = SubResource("SpriteFrames_i5h31")
 autoplay = "default"
-frame_progress = 0.815507
+offset = Vector2(0, -25)
 script = ExtResource("2_opyox")

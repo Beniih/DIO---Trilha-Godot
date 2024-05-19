@@ -1,12 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://ckcocq52kkr0h"]
+[gd_scene load_steps=5 format=3 uid="uid://ckcocq52kkr0h"]
 
 [ext_resource type="Script" path="res://elements/enemies/spawner.gd" id="1_e17f0"]
 [ext_resource type="PackedScene" uid="uid://dcfa5f4wuxto" path="res://elements/enemies/barrel_goblin.tscn" id="2_8xnwm"]
 [ext_resource type="PackedScene" uid="uid://dylncmicpc1u7" path="res://elements/enemies/red_goblin.tscn" id="3_a6vus"]
+[ext_resource type="PackedScene" uid="uid://cylaxajg5hesf" path="res://elements/enemies/dynamite_goblin.tscn" id="4_foyxe"]
 
 [node name="Spawner" type="Node2D"]
 script = ExtResource("1_e17f0")
 monster_listt = Array[PackedScene]([ExtResource("2_8xnwm"), ExtResource("3_a6vus")])
+monster_new = Array[PackedScene]([ExtResource("4_foyxe")])
 
 [node name="Anchor1" type="Node2D" parent="."]
 position = Vector2(28, 28)
@@ -22,4 +24,10 @@ rect = Rect2(-50, -50, 100, 100)
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
 
+[node name="NewChallenges" type="Timer" parent="."]
+wait_time = 300.0
+one_shot = true
+autostart = true
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="NewChallenges" to="." method="_on_new_challenges_timeout"]

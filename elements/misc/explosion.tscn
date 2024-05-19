@@ -1,80 +1,183 @@
-[gd_scene load_steps=12 format=3 uid="uid://ci66s8280laeq"]
+[gd_scene load_steps=15 format=3 uid="uid://ci66s8280laeq"]
 
 [ext_resource type="Texture2D" uid="uid://ccbp0syqp7ehq" path="res://addons/Tiny Swords (Update 010)/Effects/Explosion/Explosions.png" id="1_24ua3"]
+[ext_resource type="Script" path="res://elements/misc/explosion.gd" id="2_p532g"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_lcsbu"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ones3"]
 atlas = ExtResource("1_24ua3")
 region = Rect2(0, 0, 192, 192)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_qjjkf"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_i4cj3"]
 atlas = ExtResource("1_24ua3")
 region = Rect2(192, 0, 192, 192)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_58tv6"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_kfh6c"]
 atlas = ExtResource("1_24ua3")
 region = Rect2(384, 0, 192, 192)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_84amt"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ggy67"]
 atlas = ExtResource("1_24ua3")
 region = Rect2(576, 0, 192, 192)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_jwctm"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_xdgbp"]
 atlas = ExtResource("1_24ua3")
 region = Rect2(768, 0, 192, 192)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_yutsm"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_61e3w"]
 atlas = ExtResource("1_24ua3")
 region = Rect2(960, 0, 192, 192)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_yghsp"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_cojvk"]
 atlas = ExtResource("1_24ua3")
 region = Rect2(1152, 0, 192, 192)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_2ax4h"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_riwv2"]
 atlas = ExtResource("1_24ua3")
 region = Rect2(1344, 0, 192, 192)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_0p5f3"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_qj2f8"]
 atlas = ExtResource("1_24ua3")
 region = Rect2(1536, 0, 192, 192)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_3wvgc"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_u37a6"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_lcsbu")
+"texture": SubResource("AtlasTexture_ones3")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_qjjkf")
+"texture": SubResource("AtlasTexture_i4cj3")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_58tv6")
+"texture": SubResource("AtlasTexture_kfh6c")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_84amt")
+"texture": SubResource("AtlasTexture_ggy67")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_jwctm")
+"texture": SubResource("AtlasTexture_xdgbp")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_yutsm")
+"texture": SubResource("AtlasTexture_61e3w")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_yghsp")
+"texture": SubResource("AtlasTexture_cojvk")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_2ax4h")
+"texture": SubResource("AtlasTexture_riwv2")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_0p5f3")
+"texture": SubResource("AtlasTexture_qj2f8")
 }],
-"loop": true,
+"loop": false,
 "name": &"default",
 "speed": 10.0
 }]
 
-[node name="Explosion" type="AnimatedSprite2D"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_5a1kg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ones3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i4cj3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kfh6c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ggy67")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xdgbp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_61e3w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cojvk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_riwv2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qj2f8")
+}],
+"loop": false,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_78tr8"]
+radius = 100.0
+
+[node name="Explosion" type="Node2D"]
 y_sort_enabled = true
-sprite_frames = SubResource("SpriteFrames_3wvgc")
+script = ExtResource("2_p532g")
+
+[node name="AnimatedSprite2D8" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 35)
+sprite_frames = SubResource("SpriteFrames_u37a6")
 autoplay = "default"
-frame_progress = 0.157884
+offset = Vector2(0, -32)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(36, 47)
+scale = Vector2(0.8, 0.8)
+sprite_frames = SubResource("SpriteFrames_5a1kg")
+autoplay = "default"
+offset = Vector2(0, -28)
+
+[node name="AnimatedSprite2D5" type="AnimatedSprite2D" parent="."]
+position = Vector2(-32, -40)
+scale = Vector2(0.8, 0.8)
+sprite_frames = SubResource("SpriteFrames_5a1kg")
+autoplay = "default"
+offset = Vector2(0, -28)
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+position = Vector2(-55, -16)
+scale = Vector2(0.6, 0.6)
+sprite_frames = SubResource("SpriteFrames_5a1kg")
+autoplay = "default"
+offset = Vector2(0, -28)
+
+[node name="AnimatedSprite2D7" type="AnimatedSprite2D" parent="."]
+position = Vector2(-56, 30)
+scale = Vector2(0.6, 0.6)
+sprite_frames = SubResource("SpriteFrames_5a1kg")
+autoplay = "default"
+offset = Vector2(0, -28)
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="."]
+position = Vector2(-26, 22)
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_5a1kg")
+autoplay = "default"
+offset = Vector2(0, -28)
+
+[node name="AnimatedSprite2D6" type="AnimatedSprite2D" parent="."]
+position = Vector2(43, -11)
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_5a1kg")
+autoplay = "default"
+offset = Vector2(0, -28)
+
+[node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="."]
+position = Vector2(26, -37)
+scale = Vector2(0.7, 0.7)
+sprite_frames = SubResource("SpriteFrames_5a1kg")
+autoplay = "default"
+offset = Vector2(0, -28)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-7, -17)
+shape = SubResource("CircleShape2D_78tr8")
+
+[connection signal="animation_finished" from="AnimatedSprite2D4" to="." method="_on_animated_sprite_2d_4_animation_finished"]

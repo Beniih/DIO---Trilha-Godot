@@ -9,6 +9,9 @@ extends CanvasLayer
 var time_elapsed: float = 0.0
 
 func _process(delta: float) -> void:
+	if GameManager.game_over:
+		return
+
 	time_elapsed += delta
 	var time_elapsed_seconds: int = floori(time_elapsed)
 	var seconds: int = time_elapsed_seconds % 60

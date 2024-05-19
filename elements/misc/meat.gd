@@ -1,6 +1,7 @@
 extends Node2D
 
 @export var health_regeneration: int = 10
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
@@ -10,4 +11,4 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 
 
 func _on_timer_timeout() -> void:
-	self.queue_free()
+	animation_player.play("timeout")

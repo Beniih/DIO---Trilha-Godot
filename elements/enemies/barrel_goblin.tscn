@@ -344,21 +344,21 @@ animations = [{
 [node name="Barrel_Goblin" type="CharacterBody2D" groups=["enemy"]]
 y_sort_enabled = true
 collision_mask = 3
+motion_mode = 1
 script = ExtResource("1_2itak")
 health = 2
 death_prefab = ExtResource("2_6aeej")
 itens = Array[PackedScene]([ExtResource("3_jfxey"), ExtResource("4_mxggi")])
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, 28)
+position = Vector2(0, 20)
 sprite_frames = SubResource("SpriteFrames_18l4h")
 animation = &"run"
 autoplay = "run"
-frame_progress = 0.397807
 offset = Vector2(0, -28)
 
 [node name="Body" type="CollisionShape2D" parent="."]
-position = Vector2(0, 13)
+position = Vector2(0, 5)
 shape = SubResource("CapsuleShape2D_eacvq")
 
 [node name="AttackNode" type="Node" parent="." node_paths=PackedStringArray("attack_range", "sprite")]
@@ -367,6 +367,7 @@ attack_range = NodePath("../AttackRange")
 sprite = NodePath("../Sprite")
 
 [node name="AttackRange" type="Area2D" parent="."]
+position = Vector2(0, -8)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRange"]
 shape = SubResource("CircleShape2D_8npwe")
@@ -380,15 +381,18 @@ death_prefab = ExtResource("2_6aeej")
 
 [node name="AfterExplosion1" type="AnimatedSprite2D" parent="."]
 y_sort_enabled = true
-position = Vector2(-31, 19)
+position = Vector2(-31, 11)
 scale = Vector2(0.55, 0.55)
 sprite_frames = SubResource("SpriteFrames_jyg8i")
 
 [node name="AfterExplosion2" type="AnimatedSprite2D" parent="."]
 y_sort_enabled = true
-position = Vector2(31, -16)
+position = Vector2(31, -24)
 scale = Vector2(0.35, 0.35)
 sprite_frames = SubResource("SpriteFrames_g4axa")
 
 [node name="DamageDigitAnchor" type="Marker2D" parent="."]
-position = Vector2(0, -25)
+position = Vector2(0, -33)
+
+[node name="DropMark" type="Marker2D" parent="."]
+position = Vector2(0, 24)
