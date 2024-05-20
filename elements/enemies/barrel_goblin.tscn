@@ -363,13 +363,14 @@ offset = Vector2(0, -28)
 position = Vector2(0, 5)
 shape = SubResource("CapsuleShape2D_eacvq")
 
+[node name="FX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_stkxp")
+volume_db = 5.0
+
 [node name="AttackNode" type="Node" parent="." node_paths=PackedStringArray("attack_range", "sprite")]
 script = ExtResource("4_t25ip")
 attack_range = NodePath("../AttackRange")
 sprite = NodePath("../Sprite")
-
-[node name="FX" type="AudioStreamPlayer2D" parent="AttackNode"]
-stream = ExtResource("8_stkxp")
 
 [node name="AttackRange" type="Area2D" parent="."]
 position = Vector2(0, -8)

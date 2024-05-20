@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bjoqle1aub0sf"]
+[gd_scene load_steps=17 format=3 uid="uid://bjoqle1aub0sf"]
 
 [ext_resource type="Script" path="res://elements/enemies/voice_box.gd" id="1_kll23"]
 [ext_resource type="AudioStream" uid="uid://ctxyq3o0ycr5e" path="res://addons/sound and bgm/216933-Goblin_Laughter_7.mp3" id="2_5ohyv"]
@@ -13,11 +13,15 @@
 [ext_resource type="AudioStream" uid="uid://jpyfmgkub1dw" path="res://addons/sound and bgm/284471-Goblin_Voice_-Get_Them.mp3" id="11_mmuj0"]
 [ext_resource type="AudioStream" uid="uid://f3voxjh0ojgl" path="res://addons/sound and bgm/284478-Goblin_Voice_-Murder_Them.mp3" id="12_d6ffn"]
 [ext_resource type="AudioStream" uid="uid://ffa3glko7fq7" path="res://addons/sound and bgm/284481-Goblin_Voice_-No_Way_2.mp3" id="13_88yaf"]
+[ext_resource type="AudioStream" uid="uid://bkp7qsy0abfc3" path="res://addons/sound and bgm/284453-Goblin_Pain_13.mp3" id="14_hl4lb"]
+[ext_resource type="AudioStream" uid="uid://boffm5kkqox2i" path="res://addons/sound and bgm/284454-Goblin_Pain_7.mp3" id="15_qadx2"]
+[ext_resource type="AudioStream" uid="uid://d3700d778dpg3" path="res://addons/sound and bgm/284485-Goblin_Voice_-Ouch.mp3" id="16_8aul1"]
 
 [node name="VoiceBox" type="AudioStreamPlayer2D"]
 volume_db = -4.0
 script = ExtResource("1_kll23")
 playbacks = Array[AudioStreamMP3]([ExtResource("2_5ohyv"), ExtResource("3_r58o0"), ExtResource("4_yrlgq"), ExtResource("5_5f5hi"), ExtResource("6_5cuuk"), ExtResource("7_rtb8m"), ExtResource("8_ld4eg"), ExtResource("9_1xdao"), ExtResource("10_edkfx"), ExtResource("11_mmuj0"), ExtResource("12_d6ffn"), ExtResource("13_88yaf")])
+ouch_playbacks = Array[AudioStreamMP3]([ExtResource("14_hl4lb"), ExtResource("15_qadx2"), ExtResource("16_8aul1")])
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 3.0

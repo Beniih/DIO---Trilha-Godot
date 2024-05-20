@@ -6,6 +6,7 @@ extends CharacterBody2D
 @export var itens: Array[PackedScene]
 @onready var damage_digit_anchor: Marker2D = $DamageDigitAnchor
 @onready var drop_mark: Marker2D = $DropMark
+@onready var voice_box: AudioStreamPlayer2D = $VoiceBox
 const DAMAGE_DIGIT: PackedScene = preload("res://elements/misc/damage_digit.tscn")
 var attacking: bool = false
 var can_attack: bool = true
@@ -39,6 +40,8 @@ func attack() -> void: # call attack
 
 
 func take_damage(amount, player: bool = false):
+	if voice_box:
+		voice_box.hurt_sound()
 	var tween = create_tween()
 	tween.set_trans(Tween.TRANS_BOUNCE)
 	health -= amount
@@ -50,7 +53,7 @@ func take_damage(amount, player: bool = false):
 		get_parent().add_child(damage_digit)
 	# check if it's alive
 	if health <= 0:
-		call_deferred("die", player)
+		die(player)
 	modulate = Color.RED
 	tween.tween_property(self, "modulate", Color.WHITE, 0.3)
 

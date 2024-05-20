@@ -40,10 +40,7 @@ func attack_decide(pos: Vector2, player_pos: Vector2, attacking: bool, can_attac
 
 
 func deal_damage() -> void:
-	while sprite.frame < 3:
-		await Engine.get_main_loop().process_frame
-		if sprite.frame >= 3:
-			break
+	await get_tree().create_timer(.3).timeout
 	var bodies = attack_range.get_overlapping_bodies()
 	for body in bodies:
 		if !is_instance_valid(body):

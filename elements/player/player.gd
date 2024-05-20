@@ -82,11 +82,7 @@ func _on_knigh_blue_animation_finished() -> void:
 
 
 func deal_damage() -> void:
-# wait valid attack frame from animation
-	while $KnighBlue.frame < 3:
-		if $KnighBlue.frame >= 3:
-			break
-		await Engine.get_main_loop().process_frame
+	await  get_tree().create_timer(.3).timeout
 # get the enemy near
 	var bodies = attack_colision.get_overlapping_bodies()
 	for body in bodies:
