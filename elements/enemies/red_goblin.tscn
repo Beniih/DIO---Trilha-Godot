@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://dylncmicpc1u7"]
+[gd_scene load_steps=43 format=3 uid="uid://dylncmicpc1u7"]
 
 [ext_resource type="Texture2D" uid="uid://gjoym8xolb6f" path="res://addons/Tiny Swords (Update 010)/Factions/Goblins/Troops/Torch/Red/Torch_Red.png" id="1_boq6i"]
 [ext_resource type="Script" path="res://elements/enemies/enemy.gd" id="1_ye8de"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://elements/enemies/TorchAttackNode.gd" id="3_ffgak"]
 [ext_resource type="PackedScene" uid="uid://cc6ae8esforia" path="res://elements/misc/meat.tscn" id="3_o5l4c"]
 [ext_resource type="PackedScene" uid="uid://cewgu8at13p66" path="res://elements/misc/gold_sack.tscn" id="4_kf7ce"]
+[ext_resource type="PackedScene" uid="uid://bjoqle1aub0sf" path="res://elements/enemies/voice_box.tscn" id="8_4meog"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2tqd4"]
 atlas = ExtResource("1_boq6i")
@@ -299,3 +300,5 @@ position = Vector2(0, -29)
 
 [node name="DropMark" type="Marker2D" parent="."]
 position = Vector2(0, 30)
+
+[node name="VoiceBox" parent="." instance=ExtResource("8_4meog")]

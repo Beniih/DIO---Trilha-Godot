@@ -1,9 +1,11 @@
 extends Node2D
 
 @onready var area_2d: Area2D = $Area2D
+@onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 
 func _ready() -> void:
+	audio_stream_player_2d.play()
 	await get_tree().create_timer(.1).timeout
 	var bodies = area_2d.get_overlapping_bodies()
 	for body in bodies:

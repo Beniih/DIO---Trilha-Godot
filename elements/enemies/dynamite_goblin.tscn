@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://cylaxajg5hesf"]
+[gd_scene load_steps=31 format=3 uid="uid://cylaxajg5hesf"]
 
 [ext_resource type="Script" path="res://elements/enemies/enemy.gd" id="1_3nnvt"]
 [ext_resource type="Texture2D" uid="uid://cuemrv5k3q2q1" path="res://addons/Tiny Swords (Update 010)/Factions/Goblins/Troops/TNT/Yellow/TNT_Yellow.png" id="1_h2cqf"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cc6ae8esforia" path="res://elements/misc/meat.tscn" id="4_iyk3e"]
 [ext_resource type="Script" path="res://elements/enemies/behaviors/follow_player.gd" id="4_xmlmi"]
 [ext_resource type="Script" path="res://elements/enemies/TargetMark.gd" id="6_bbhqr"]
+[ext_resource type="PackedScene" uid="uid://bjoqle1aub0sf" path="res://elements/enemies/voice_box.tscn" id="9_5esin"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kiqb5"]
 atlas = ExtResource("1_h2cqf")
@@ -197,3 +198,5 @@ position = Vector2(0, -48)
 script = ExtResource("6_bbhqr")
 
 [node name="DropMark" type="Marker2D" parent="."]
+
+[node name="VoiceBox" parent="." instance=ExtResource("9_5esin")]

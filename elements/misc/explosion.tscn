@@ -1,7 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://ci66s8280laeq"]
+[gd_scene load_steps=16 format=3 uid="uid://ci66s8280laeq"]
 
 [ext_resource type="Texture2D" uid="uid://ccbp0syqp7ehq" path="res://addons/Tiny Swords (Update 010)/Effects/Explosion/Explosions.png" id="1_24ua3"]
 [ext_resource type="Script" path="res://elements/misc/explosion.gd" id="2_p532g"]
+[ext_resource type="AudioStream" uid="uid://h6ramvnh5nyb" path="res://addons/sound and bgm/337360-Explosion_-moderately_distant_military_explosion_-blast_from_bomb_shell-grenade-flash_bomb-or_mortar_impact.mp3" id="3_urq2x"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ones3"]
 atlas = ExtResource("1_24ua3")
@@ -179,5 +180,8 @@ offset = Vector2(0, -28)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(-7, -17)
 shape = SubResource("CircleShape2D_78tr8")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_urq2x")
 
 [connection signal="animation_finished" from="AnimatedSprite2D4" to="." method="_on_animated_sprite_2d_4_animation_finished"]

@@ -1,6 +1,7 @@
 extends Node
 @export var attack_range: Area2D
 @export var sprite: AnimatedSprite2D
+@onready var fx: AudioStreamPlayer2D = $FX
 # execute the attack
 func attack_action() -> void:
 	if get_parent().has_node("Sprite"):
@@ -25,6 +26,7 @@ func deal_damage() -> void:
 			break
 	$"../AfterExplosion1".play("default")
 	$"../AfterExplosion2".play("default")
+	fx.play()
 	var bodies = attack_range.get_overlapping_bodies()
 	for body in bodies:
 		if is_instance_valid(body) and body != get_parent():

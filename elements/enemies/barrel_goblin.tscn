@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://dcfa5f4wuxto"]
+[gd_scene load_steps=56 format=3 uid="uid://dcfa5f4wuxto"]
 
 [ext_resource type="Script" path="res://elements/enemies/enemy.gd" id="1_2itak"]
 [ext_resource type="Script" path="res://elements/enemies/behaviors/follow_player.gd" id="1_u3kqv"]
@@ -9,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://cewgu8at13p66" path="res://elements/misc/gold_sack.tscn" id="4_mxggi"]
 [ext_resource type="Script" path="res://elements/enemies/BarrelAttackNode.gd" id="4_t25ip"]
 [ext_resource type="Script" path="res://elements/enemies/behaviors/DeathObjectTorch.gd" id="7_6nadf"]
+[ext_resource type="AudioStream" uid="uid://bo8noahntjbpv" path="res://addons/sound and bgm/96158-Explosion_black_powder_large_distant_artillery_shell-BLASTWAVEFX-31105.mp3" id="8_stkxp"]
+[ext_resource type="PackedScene" uid="uid://bjoqle1aub0sf" path="res://elements/enemies/voice_box.tscn" id="10_gmfim"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7o3ay"]
 atlas = ExtResource("2_q23eu")
@@ -366,6 +368,9 @@ script = ExtResource("4_t25ip")
 attack_range = NodePath("../AttackRange")
 sprite = NodePath("../Sprite")
 
+[node name="FX" type="AudioStreamPlayer2D" parent="AttackNode"]
+stream = ExtResource("8_stkxp")
+
 [node name="AttackRange" type="Area2D" parent="."]
 position = Vector2(0, -8)
 
@@ -396,3 +401,5 @@ position = Vector2(0, -33)
 
 [node name="DropMark" type="Marker2D" parent="."]
 position = Vector2(0, 24)
+
+[node name="VoiceBox" parent="." instance=ExtResource("10_gmfim")]

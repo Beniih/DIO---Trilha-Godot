@@ -1,0 +1,277 @@
+[gd_scene load_steps=21 format=3 uid="uid://cet5saw3xmac1"]
+
+[ext_resource type="Script" path="res://elements/UI/level_up_menu.gd" id="1_0v6y6"]
+[ext_resource type="Texture2D" uid="uid://bligfgtpfawkk" path="res://addons/Tiny Swords (Update 010)/UI/Banners/Carved_9Slides.png" id="1_3286a"]
+[ext_resource type="FontFile" uid="uid://bhd8atvvl47cl" path="res://addons/fonts/medieval_sharp/MedievalSharp-BoldOblique.ttf" id="1_oispa"]
+[ext_resource type="FontFile" uid="uid://b612n3l5xwoiv" path="res://addons/fonts/medieval_sharp/MedievalSharp-Book.ttf" id="2_0llnw"]
+[ext_resource type="FontFile" uid="uid://cqddsfni5wrn1" path="res://addons/fonts/medieval_sharp/MedievalSharp-Bold.ttf" id="2_84h4g"]
+[ext_resource type="Texture2D" uid="uid://b3qrl3r0a1v71" path="res://addons/Kyrises_RPG_Icon_Pack/spritesheet_48x48.png" id="3_1wlnj"]
+[ext_resource type="Texture2D" uid="uid://bdp5ws5a5bo72" path="res://addons/Tiny Swords (Update 010)/UI/Pointers/02.png" id="6_0gdm6"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_jy56e"]
+font = ExtResource("1_oispa")
+font_size = 96
+outline_size = 15
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_t2fmw"]
+font = ExtResource("2_0llnw")
+font_size = 32
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_f4kyo"]
+texture = ExtResource("1_3286a")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+axis_stretch_horizontal = 1
+
+[sub_resource type="LabelSettings" id="LabelSettings_ku50q"]
+font = ExtResource("2_84h4g")
+font_size = 48
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ymtw"]
+atlas = ExtResource("3_1wlnj")
+region = Rect2(240, 1008, 48, 48)
+
+[sub_resource type="LabelSettings" id="LabelSettings_vmy1c"]
+font = ExtResource("2_84h4g")
+font_size = 48
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tpvq0"]
+atlas = ExtResource("3_1wlnj")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="LabelSettings" id="LabelSettings_de4bo"]
+font = ExtResource("2_84h4g")
+font_size = 48
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pgu65"]
+atlas = ExtResource("3_1wlnj")
+region = Rect2(48, 192, 48, 48)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pqjvi"]
+texture = ExtResource("6_0gdm6")
+texture_margin_left = 8.0
+texture_margin_top = 12.0
+texture_margin_right = 8.0
+texture_margin_bottom = 12.0
+axis_stretch_horizontal = 1
+region_rect = Rect2(4, 4, 56, 56)
+
+[sub_resource type="Animation" id="Animation_3jqkh"]
+resource_name = "selector_grow"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Selector:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.02, 1.02), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_vjcxr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Selector:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ppv8h"]
+_data = {
+"RESET": SubResource("Animation_vjcxr"),
+"selector_grow": SubResource("Animation_3jqkh")
+}
+
+[node name="LevelUpMenu" type="CanvasLayer"]
+process_mode = 2
+script = ExtResource("1_0v6y6")
+
+[node name="LevelUpLabel" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -227.5
+offset_top = 30.0
+offset_right = 227.5
+offset_bottom = 147.0
+grow_horizontal = 2
+text = "LEVEL UP!"
+label_settings = SubResource("LabelSettings_jy56e")
+
+[node name="Label" type="Label" parent="LevelUpLabel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -237.5
+offset_top = -17.0
+offset_right = 237.5
+offset_bottom = 23.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Escolha um status para aprimorar:"
+label_settings = SubResource("LabelSettings_t2fmw")
+
+[node name="StrengthPanel" type="Panel" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -124.0
+offset_right = 250.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_f4kyo")
+
+[node name="CenterContainer" type="CenterContainer" parent="StrengthPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GridContainer" type="GridContainer" parent="StrengthPanel/CenterContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 20
+columns = 2
+
+[node name="Label" type="Label" parent="StrengthPanel/CenterContainer/GridContainer"]
+layout_mode = 2
+text = "FORÇA"
+label_settings = SubResource("LabelSettings_ku50q")
+
+[node name="TextureRect" type="TextureRect" parent="StrengthPanel/CenterContainer/GridContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_8ymtw")
+
+[node name="ToughnessPanel" type="Panel" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = 26.0
+offset_right = 250.0
+offset_bottom = 126.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_f4kyo")
+
+[node name="CenterContainer" type="CenterContainer" parent="ToughnessPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -24.0
+offset_top = -24.0
+offset_right = 24.0
+offset_bottom = 24.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GridContainer" type="GridContainer" parent="ToughnessPanel/CenterContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 20
+columns = 2
+
+[node name="Label" type="Label" parent="ToughnessPanel/CenterContainer/GridContainer"]
+layout_mode = 2
+text = "RESISTÊNCIA"
+label_settings = SubResource("LabelSettings_vmy1c")
+
+[node name="TextureRect" type="TextureRect" parent="ToughnessPanel/CenterContainer/GridContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_tpvq0")
+
+[node name="SpeedPanel" type="Panel" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = 176.0
+offset_right = 250.0
+offset_bottom = 276.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_f4kyo")
+
+[node name="CenterContainer" type="CenterContainer" parent="SpeedPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GridContainer" type="GridContainer" parent="SpeedPanel/CenterContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 20
+columns = 2
+
+[node name="Label" type="Label" parent="SpeedPanel/CenterContainer/GridContainer"]
+layout_mode = 2
+text = "VELOCIDADE"
+label_settings = SubResource("LabelSettings_de4bo")
+
+[node name="TextureRect" type="TextureRect" parent="SpeedPanel/CenterContainer/GridContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_pgu65")
+
+[node name="Selector" type="Panel" parent="."]
+offset_left = 327.0
+offset_top = 199.0
+offset_right = 826.0
+offset_bottom = 303.0
+pivot_offset = Vector2(249, 52)
+theme_override_styles/panel = SubResource("StyleBoxTexture_pqjvi")
+
+[node name="SelectorAnimation" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ppv8h")
+}
+autoplay = "selector_grow"

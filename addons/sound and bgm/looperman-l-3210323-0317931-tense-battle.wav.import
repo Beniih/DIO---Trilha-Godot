@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b2b43hj2rp1he"
+path="res://.godot/imported/looperman-l-3210323-0317931-tense-battle.wav-8b7269b0901e7a8656a10a23cafdf87b.sample"
+
+[deps]
+
+source_file="res://addons/sound and bgm/looperman-l-3210323-0317931-tense-battle.wav"
+dest_files=["res://.godot/imported/looperman-l-3210323-0317931-tense-battle.wav-8b7269b0901e7a8656a10a23cafdf87b.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=2
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

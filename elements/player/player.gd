@@ -3,7 +3,7 @@ extends CharacterBody2D
 #---------------------status------------------------#
 var nivel: int = 1
 var xp: int = 0
-var to_next_level: int = 100
+var to_next_level: int = 60
 var strenght: int = 1
 var thougness: int = 1
 var agility: int = 1
@@ -109,9 +109,7 @@ func deal_damage() -> void:
 			var dot_product = direction_to_enemy.dot(atack_direction)
 			if dot_product >= .35:
 				var dmg: int = strenght + int(nivel / 2)
-				if randf() <= .2:
-					dmg *= 2
-				body.take_damage(dmg+5, true)
+				body.take_damage(dmg, true)
 
 
 func take_damage(amount):
@@ -130,8 +128,8 @@ func get_xp(amount):
 	if xp >= to_next_level:
 		nivel += 1
 		to_next_level = 75 + ((nivel - 1) * 35) + (nivel * nivel * 25)
-		max_health = (nivel * 5) + (thougness * 5)
 		GameManager.nivel = nivel
+		GameManager.level_up.emit()
 
 
 func regen_health(amout):
@@ -143,3 +141,8 @@ func _on_aura_timer_timeout() -> void:
 	if AURA:
 		var magic_aura = AURA.instantiate()
 		add_child(magic_aura)
+
+
+func update_health():
+	max_health = (nivel * 5) + (thougness * 5)
+	health = max_health

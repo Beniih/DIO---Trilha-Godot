@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=3 uid="uid://ckuf7vriajc0q"]
+[gd_scene load_steps=61 format=3 uid="uid://ckuf7vriajc0q"]
 
 [ext_resource type="Texture2D" uid="uid://b5vfadlooitdp" path="res://addons/Tiny Swords (Update 010)/Terrain/Ground/Tilemap_Flat.png" id="1_1encq"]
 [ext_resource type="Script" path="res://main.gd" id="1_7qvjw"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://egkymfdjest" path="res://addons/Tiny Swords (Update 010)/Terrain/Water/Foam/tile000.png" id="3_6f2ye"]
 [ext_resource type="Texture2D" uid="uid://c35ixcsig16ps" path="res://addons/Tiny Swords (Update 010)/Resources/Trees/tile000.png" id="3_c5fmw"]
 [ext_resource type="PackedScene" uid="uid://bk6omcyiwcgr5" path="res://elements/player/player.tscn" id="3_oy0uu"]
+[ext_resource type="PackedScene" uid="uid://cet5saw3xmac1" path="res://elements/UI/level_up_menu.tscn" id="4_ebkyw"]
 [ext_resource type="Texture2D" uid="uid://dqjtjkdgaplni" path="res://addons/Tiny Swords (Update 010)/Terrain/Water/Foam/tile001.png" id="4_oot0q"]
 [ext_resource type="Script" path="res://elements/camera_follow.gd" id="4_s7wjo"]
 [ext_resource type="Texture2D" uid="uid://cbxsb7vy5wcfg" path="res://addons/Tiny Swords (Update 010)/Resources/Trees/tile001.png" id="4_v8jim"]
@@ -35,6 +36,7 @@
 [ext_resource type="Texture2D" uid="uid://bejj3ck1c6ncl" path="res://addons/Tiny Swords (Update 010)/Deco/09.png" id="19_7uncg"]
 [ext_resource type="Texture2D" uid="uid://bg2nimwcjhxx8" path="res://addons/Tiny Swords (Update 010)/Resources/Gold Mine/GoldMine_Destroyed.png" id="20_8ow1w"]
 [ext_resource type="PackedScene" uid="uid://ckcocq52kkr0h" path="res://elements/enemies/spawner.tscn" id="26_81e00"]
+[ext_resource type="AudioStream" uid="uid://cnfn5vancx3cy" path="res://addons/sound and bgm/looperman-l-5191990-0276773-orchestral-drum-loop-1.wav" id="37_xo2il"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_68r5q"]
 texture = ExtResource("1_1encq")
@@ -568,13 +570,18 @@ sources/7 = SubResource("TileSetAtlasSource_u30qw")
 sources/18 = SubResource("TileSetAtlasSource_nowcm")
 sources/19 = SubResource("TileSetAtlasSource_lcw3d")
 
-[node name="Main" type="Node2D" node_paths=PackedStringArray("game_ui")]
+[node name="Main" type="Node2D" node_paths=PackedStringArray("game_ui", "level_up_menu")]
 y_sort_enabled = true
 script = ExtResource("1_7qvjw")
 game_ui = NodePath("GUI")
 game_over_template = ExtResource("2_xwg1t")
+level_up_menu = NodePath("LevelUpMenu")
 
 [node name="GUI" parent="." instance=ExtResource("2_fdkic")]
+
+[node name="LevelUpMenu" parent="." node_paths=PackedStringArray("player") instance=ExtResource("4_ebkyw")]
+visible = false
+player = NodePath("../Player")
 
 [node name="Spawner" parent="." instance=ExtResource("26_81e00")]
 
@@ -782,3 +789,8 @@ position = Vector2(2453, 765)
 position = Vector2(2452, 782)
 script = ExtResource("4_s7wjo")
 target = NodePath("../Player")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("37_xo2il")
+volume_db = -7.0
+autoplay = true

@@ -1,6 +1,7 @@
 extends Node
 
 signal xp_received(amount)
+signal level_up
 signal game_over_trigger
 
 var player_position: Vector2
