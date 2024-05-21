@@ -20,7 +20,7 @@ func create_wave(factor: int):
 		else:
 			wave.append(monster)
 			i -= monster.health
-		if i <= 0:
+		if i <= 1:
 			break
 		await Engine.get_main_loop().process_frame
 	timer.wait_time = 60.0 / float(wave.size())
