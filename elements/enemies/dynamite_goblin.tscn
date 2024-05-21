@@ -168,7 +168,7 @@ height = 56.0
 [node name="DynamiteGoblin" type="CharacterBody2D" groups=["enemy"]]
 motion_mode = 1
 script = ExtResource("1_3nnvt")
-health = 5
+health = 6
 death_prefab = ExtResource("2_ylqil")
 itens = Array[PackedScene]([ExtResource("3_j1wvi"), ExtResource("4_iyk3e")])
 
