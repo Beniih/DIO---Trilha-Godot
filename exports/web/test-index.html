@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <title>Goblin Survivor - Progress Bar</title>
+    <style>
+        body {
+            touch-action: none;
+            margin: 0;
+            border: 0 none;
+            padding: 0;
+            text-align: center;
+            background-image: url("gs-banner.jpg");
+            background-color: #98baa2; /* Cor de fundo do corpo */
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        #canvas {
+            display: block;
+            margin: 0;
+            color: white;
+        }
+
+        #status {
+            position: absolute;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            padding-bottom: 5rem;
+            display: flex;
+            justify-content: center;
+            align-items: end;
+            /* don't consume click events - make children visible explicitly */
+            visibility: hidden;
+        }
+
+        #status-progress {
+            width: 366px; /* Largura da barra de progresso */
+            height: 50px; /* Altura da barra de progresso */
+            background-color: #63c64d; /* Cor de fundo da barra de progresso */
+            border: 1px solid #327345; /* Borda da barra de progresso */
+            padding: 1px;
+            box-shadow: 0 0 2px 1px #1B1C22; /* Sombra da barra de progresso */
+            border-radius: 2px;
+            visibility: visible;
+        }
+
+        @media only screen and (orientation:portrait) {
+            #status-progress {
+                width: 61.8%; /* Ajuste de largura para orientação retrato */
+            }
+        }
+
+        #status-progress-inner {
+            height: 100%;
+            width: 50%; /* Largura inicial da barra de progresso */
+            box-sizing: border-box;
+            transition: width 0.5s linear; /* Animação da largura da barra de progresso */
+            background-color: #98baa2; /* Cor interna da barra de progresso */
+            border: 1px solid #327345; /* Borda interna da barra de progresso */
+            box-shadow: 0 0 1px 1px #27282E; /* Sombra interna da barra de progresso */
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+    <div id="status">
+        <div id="status-progress">
+            <div id="status-progress-inner"></div> <!-- Barra de progresso interna -->
+        </div>
+    </div>
+</body>
+</html>

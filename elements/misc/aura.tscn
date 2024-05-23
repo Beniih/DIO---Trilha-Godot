@@ -1,10 +1,12 @@
-[gd_scene load_steps=12 format=3 uid="uid://dsfveoo3xyaej"]
+[gd_scene load_steps=14 format=3 uid="uid://dsfveoo3xyaej"]
 
 [ext_resource type="Script" path="res://elements/misc/aura.gd" id="1_0reav"]
 [ext_resource type="Texture2D" uid="uid://cmed1vfm4xa8y" path="res://addons/Particles/twirl_03.png" id="1_a3ebg"]
 [ext_resource type="Texture2D" uid="uid://13krv7ogkmgs" path="res://addons/Particles/twirl_02.png" id="2_5wvfr"]
 [ext_resource type="Texture2D" uid="uid://dsspdgo4wspm6" path="res://addons/Particles/twirl_01.png" id="3_x4x7d"]
 [ext_resource type="Texture2D" uid="uid://bt1dlymhmpujh" path="res://addons/Particles/magic_02.png" id="4_vuuvy"]
+[ext_resource type="AudioStream" uid="uid://cagosxa85s1hq" path="res://addons/sound and bgm/Sci-Fi Drone.wav" id="6_aoj5o"]
+[ext_resource type="AudioStream" uid="uid://dd8a27ocajsoi" path="res://addons/sound and bgm/hard-slap-46388.mp3" id="6_kea0t"]
 
 [sub_resource type="Animation" id="Animation_j7g1b"]
 length = 0.001
@@ -498,3 +500,11 @@ autoplay = "aura_spin_enter"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AuraCollision"]
 shape = SubResource("CircleShape2D_neirc")
+
+[node name="Slap" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_kea0t")
+
+[node name="AuraFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_aoj5o")
+pitch_scale = 0.44
+autoplay = true

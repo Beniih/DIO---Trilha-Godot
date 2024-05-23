@@ -1,7 +1,11 @@
-[gd_scene load_steps=69 format=3 uid="uid://bk6omcyiwcgr5"]
+[gd_scene load_steps=73 format=3 uid="uid://bk6omcyiwcgr5"]
 
 [ext_resource type="Script" path="res://elements/player/player.gd" id="1_86aie"]
 [ext_resource type="Texture2D" uid="uid://dt1hb8qr7n6vw" path="res://addons/Tiny Swords (Update 010)/Factions/Knights/Troops/Warrior/Blue/Warrior_Blue.png" id="1_c4e3p"]
+[ext_resource type="AudioStream" uid="uid://pr1gyfrkouta" path="res://addons/sound and bgm/Socapex - Swordsmall.wav" id="2_eysoo"]
+[ext_resource type="AudioStream" uid="uid://bxb33iobmwvws" path="res://addons/sound and bgm/Socapex - Swordsmall_1.wav" id="3_8t14u"]
+[ext_resource type="AudioStream" uid="uid://bue802quviisa" path="res://addons/sound and bgm/Socapex - Swordsmall_2.wav" id="4_ytcvc"]
+[ext_resource type="AudioStream" uid="uid://b28spn13ahd8v" path="res://addons/sound and bgm/Socapex - Swordsmall_3.wav" id="5_f240x"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0ch1j"]
 atlas = ExtResource("1_c4e3p")
@@ -535,6 +539,7 @@ y_sort_enabled = true
 collision_mask = 3
 motion_mode = 1
 script = ExtResource("1_86aie")
+hit_sounds = Array[AudioStreamWAV]([ExtResource("2_eysoo"), ExtResource("3_8t14u"), ExtResource("4_ytcvc"), ExtResource("5_f240x")])
 
 [node name="KnighBlue" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, 32)
@@ -586,6 +591,9 @@ show_percentage = false
 [node name="AuraTimer" type="Timer" parent="."]
 wait_time = 40.0
 autostart = true
+
+[node name="hit_bus" type="AudioStreamPlayer2D" parent="."]
+volume_db = -3.0
 
 [connection signal="animation_finished" from="KnighBlue" to="." method="_on_knigh_blue_animation_finished"]
 [connection signal="timeout" from="AuraTimer" to="." method="_on_aura_timer_timeout"]

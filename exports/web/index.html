@@ -11,7 +11,10 @@ body {
 	border: 0 none;
 	padding: 0;
 	text-align: center;
-	background-color: black;
+	background-image: url("gs-banner.jpg");
+    background-color: #98baa2; /* Cor de fundo do corpo */
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 #canvas {
@@ -41,18 +44,19 @@ body {
 	top: 0;
 	right: 0;
 	bottom: 0;
+	padding-bottom: 50px;
 	display: flex;
 	justify-content: center;
-	align-items: center;
+	align-items: end;
 	/* don't consume click events - make children visible explicitly */
 	visibility: hidden;
 }
 
 #status-progress {
 	width: 366px;
-	height: 7px;
-	background-color: #38363A;
-	border: 1px solid #444246;
+	height: 50px;
+	background-color: #63c64d;
+	border: 1px solid #327345;
 	padding: 1px;
 	box-shadow: 0 0 2px 1px #1B1C22;
 	border-radius: 2px;
@@ -70,8 +74,8 @@ body {
 	width: 0;
 	box-sizing: border-box;
 	transition: width 0.5s linear;
-	background-color: #202020;
-	border: 1px solid #222223;
+	background-color: #98baa2;
+	border: 1px solid #327345;
 	box-shadow: 0 0 1px 1px #27282E;
 	border-radius: 3px;
 }
@@ -137,7 +141,7 @@ body {
 
 		<script src="index.js"></script>
 		<script>
-const GODOT_CONFIG = {"args":[],"canvasResizePolicy":2,"executable":"index","experimentalVK":false,"fileSizes":{"index.pck":10489024,"index.wasm":35708238},"focusCanvas":true,"gdextensionLibs":[]};
+const GODOT_CONFIG = {"args":[],"canvasResizePolicy":2,"executable":"index","experimentalVK":false,"fileSizes":{"index.pck":12473824,"index.wasm":35708238},"focusCanvas":true,"gdextensionLibs":[]};
 const engine = new Engine(GODOT_CONFIG);
 
 (function () {

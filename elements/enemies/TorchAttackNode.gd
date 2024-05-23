@@ -1,6 +1,7 @@
 extends Node
 @export var attack_range: Area2D
 @export var sprite: AnimatedSprite2D
+@onready var hit_sound: AudioStreamPlayer2D = $"../hit_sound"
 var atack_direction: Vector2
 # execute the attack
 func attack_action() -> void:
@@ -41,6 +42,7 @@ func attack_decide(pos: Vector2, player_pos: Vector2, attacking: bool, can_attac
 
 func deal_damage() -> void:
 	await get_tree().create_timer(.3).timeout
+	hit_sound.play(.1)
 	var bodies = attack_range.get_overlapping_bodies()
 	for body in bodies:
 		if !is_instance_valid(body):
