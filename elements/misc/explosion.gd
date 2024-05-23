@@ -11,7 +11,7 @@ func _ready() -> void:
 	for body in bodies:
 		if !is_instance_valid(body):
 			return
-		var damage: int = 1 + floori(body.health * .1)
+		var damage: int = 3 + floori(body.health * .05)
 		body.take_damage(damage)
 
 func _on_animated_sprite_2d_4_animation_finished() -> void:

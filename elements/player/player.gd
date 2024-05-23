@@ -14,6 +14,8 @@ var agility: int = 1
 @onready var attack_colision: Area2D = $AttackColision
 @export var health: int = 10
 @onready var hp_bar: ProgressBar = $hp_bar_anchor/hp_bar
+@export var hit_sounds: Array[AudioStreamWAV]
+@onready var hit_bus: AudioStreamPlayer2D = $hit_bus
 var gold_count: int = 0
 const AURA = preload("res://elements/misc/aura.tscn")
 var max_health: int
@@ -82,7 +84,10 @@ func _on_knigh_blue_animation_finished() -> void:
 
 
 func deal_damage() -> void:
+	var hit_sound = hit_sounds.pick_random()
+	hit_bus.stream = hit_sound
 	await  get_tree().create_timer(.3).timeout
+	hit_bus.play(0.0)
 # get the enemy near
 	var bodies = attack_colision.get_overlapping_bodies()
 	for body in bodies:

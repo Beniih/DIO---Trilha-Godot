@@ -174,7 +174,7 @@ itens = Array[PackedScene]([ExtResource("3_j1wvi"), ExtResource("4_iyk3e")])
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_5mpxq")
-animation = &"idle"
+animation = &"attack"
 autoplay = "idle"
 offset = Vector2(0, -30)
 

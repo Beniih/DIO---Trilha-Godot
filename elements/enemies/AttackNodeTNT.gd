@@ -7,6 +7,7 @@ const TNT = preload("res://elements/enemies/tnt.tscn")
 func attack_action() -> void:
 	var direction_to_player = (GameManager.player_position-get_parent().position).normalized()
 	sprite.set_animation("attack")
+	await get_tree().create_timer(0.2).timeout
 	deal_damage()
 	await get_tree().create_timer(0.7).timeout
 	sprite.set_animation("idle")

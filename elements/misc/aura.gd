@@ -1,10 +1,13 @@
 extends Node2D
 
 @onready var aura_collision: Area2D = $AuraCollision
+@onready var slap: AudioStreamPlayer2D = $Slap
+
 
 func aura_damage():
 	var bodies = aura_collision.get_overlapping_bodies()
 	for body in bodies:
+		slap.play(.2)
 		if !is_instance_valid(body):
 			return
 		if body.is_in_group("enemy"):
