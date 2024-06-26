@@ -16,7 +16,7 @@ func create_wave(factor: int):
 	while i > 0:
 		var monster: Enemy = monster_listt.pick_random().instantiate()
 		if monster.health > i:
-			pass
+			continue
 		else:
 			wave.append(monster)
 			i -= monster.health
