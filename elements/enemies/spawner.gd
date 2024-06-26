@@ -16,6 +16,7 @@ func create_wave(factor: int):
 	while i > 0:
 		var monster: Enemy = monster_listt.pick_random().instantiate()
 		if monster.health > i:
+			await Engine.get_main_loop().process_frame
 			continue
 		else:
 			wave.append(monster)
